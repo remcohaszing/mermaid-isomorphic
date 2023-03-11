@@ -1,0 +1,55 @@
+{
+  "name": "mermaid-isomorphic",
+  "version": "0.0.0",
+  "description": "Transform mermaid diagrams in the browser or Node.js",
+  "keywords": [
+    "browser",
+    "isomorphic",
+    "mermaid",
+    "mermaidjs",
+    "node",
+    "nodejs"
+  ],
+  "homepage": "https://github.com/remcohaszing/mermaid-isomorphic#readme",
+  "bugs": "https://github.com/remcohaszing/mermaid-isomorphic/issues",
+  "repository": "remcohaszing/mermaid-isomorphic",
+  "funding": "https://github.com/sponsors/remcohaszing",
+  "license": "MIT",
+  "author": "Remco Haszing <remcohaszing@gmail.com>",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "browser": "./browser.js",
+      "default": "./index.js"
+    }
+  },
+  "files": [
+    "./browser.js",
+    "./index.js",
+    "./index.d.ts"
+  ],
+  "scripts": {
+    "prepack": "tsc --noEmit false",
+    "test": "c8 tsx test.ts"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.0.0",
+    "mermaid": "10.0.3-alpha.1",
+    "playwright-core": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "c8": "^7.0.0",
+    "esbuild": "^0.17.0",
+    "eslint": "^8.0.0",
+    "eslint-config-remcohaszing": "^8.0.0",
+    "playwright": "^1.0.0",
+    "prettier": "^2.0.0",
+    "tsx": "^3.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

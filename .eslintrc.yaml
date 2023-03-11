@@ -1,0 +1,6 @@
+root: true
+extends:
+  - remcohaszing
+  # - remcohaszing/typechecking
+rules:
+  no-restricted-properties: off
