@@ -43,6 +43,13 @@ const results = await renderer([diagram])
 console.log(results)
 ```
 
+### FontAwesome
+
+Mermaid has support for
+[FontAwesome](https://mermaid.js.org/syntax/flowchart.html#basic-support-for-fontawesome). This is
+also supported by `isomorphic-mermaid`, but you need to load the FontAwesome CSS yourself when
+serving the SVG.
+
 ## API
 
 ### `createMermaidRenderer(options?: CreateMermaidRendererOptions)`
