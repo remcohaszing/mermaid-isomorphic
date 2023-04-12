@@ -1,6 +1,6 @@
 # mermaid-isomorphis
 
-[![github actions](https://github.com/remcohaszing/mermaid-isomorphic/actions/workflows/ci.yml/badge.svg)](https://github.com/remcohaszing/mermaid-isomorphic/actions/workflows/ci.yaml)
+[![github actions](https://github.com/remcohaszing/mermaid-isomorphic/actions/workflows/ci.yaml/badge.svg)](https://github.com/remcohaszing/mermaid-isomorphic/actions/workflows/ci.yaml)
 [![npm](https://img.shields.io/npm/v/mermaid-isomorphic)](https://www.npmjs.com/package/mermaid-isomorphic)
 [![codecov](https://codecov.io/gh/remcohaszing/mermaid-isomorphic/branch/main/graph/badge.svg)](https://codecov.io/gh/remcohaszing/mermaid-isomorphic)
 
