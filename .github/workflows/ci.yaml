@@ -43,7 +43,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npx playwright install --with-deps
-      - run: npm test
+      - run: npm test update
+      - uses: actions/upload-artifact@v3
+        with:
+          name: fixtures node ${{ matrix.node-version }}
+          path: fixtures/
+        if: always()
       - uses: codecov/codecov-action@v3
         if: ${{ matrix.node-version == 18 }}
 
