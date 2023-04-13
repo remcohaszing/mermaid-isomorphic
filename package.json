@@ -26,6 +26,7 @@
   },
   "files": [
     "./browser.js",
+    "./index.html",
     "./index.js",
     "./index.d.ts"
   ],

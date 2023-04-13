@@ -1,4 +1,5 @@
 import { createRequire } from 'node:module'
+import { pathToFileURL } from 'node:url'
 
 import { MermaidConfig } from 'mermaid'
 import { Browser, BrowserType, chromium, LaunchOptions, Page } from 'playwright-core'
@@ -6,8 +7,12 @@ import { Browser, BrowserType, chromium, LaunchOptions, Page } from 'playwright-
 declare const mermaid: typeof import('mermaid').default
 
 const require = createRequire(import.meta.url)
+const html = String(new URL('index.html', import.meta.url))
 const mermaidScript = { path: require.resolve('mermaid') }
-const faStyle = { path: require.resolve('@fortawesome/fontawesome-free/css/all.css') }
+const faStyle = {
+  // We use url, not path. If we use path, the fonts can’t be resolved.
+  url: String(pathToFileURL(require.resolve('@fortawesome/fontawesome-free/css/all.css')))
+}
 
 export interface CreateMermaidRendererOptions {
   /**
@@ -117,6 +122,7 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
 
     try {
       page = await browserInstance.newPage({ bypassCSP: true })
+      await page.goto(html)
       await Promise.all([page.addStyleTag(faStyle), page.addScriptTag(mermaidScript)])
 
       renderResults = await page.evaluate(renderDiagrams, {
