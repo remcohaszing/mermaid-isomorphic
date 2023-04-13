@@ -73,9 +73,7 @@ describe('single fixtures', () => {
       const { input, validate } = await readFixture(name, 'firefox.svg')
       const renderer = createMermaidRenderer({ browser: firefox })
 
-      const results = await renderer([input], {
-        mermaidConfig: { theme: 'dark', prefix: 'prefix' }
-      })
+      const results = await renderer([input])
 
       assert.equal(results.length, 1)
       const [result] = results
