@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { describe, test } from 'node:test'
 
-import { chromium, firefox } from 'playwright'
+import { chromium, firefox } from 'playwright-core'
 
 import { createMermaidRenderer } from './index.js'
 

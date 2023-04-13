@@ -44,7 +44,6 @@
     "esbuild": "^0.17.0",
     "eslint": "^8.0.0",
     "eslint-config-remcohaszing": "^8.0.0",
-    "playwright": "^1.0.0",
     "prettier": "^2.0.0",
     "tsx": "^3.0.0",
     "typescript": "^5.0.0"
