@@ -127,7 +127,10 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
 
       renderResults = await page.evaluate(renderDiagrams, {
         diagrams,
-        mermaidConfig: renderOptions?.mermaidConfig,
+        mermaidConfig: {
+          fontFamily: 'arial,sans-serif',
+          ...renderOptions?.mermaidConfig
+        },
         prefix: renderOptions?.prefix ?? 'mermaid'
       })
     } finally {
