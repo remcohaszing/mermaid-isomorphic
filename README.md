@@ -1,4 +1,4 @@
-# mermaid-isomorphis
+# mermaid-isomorphic
 
 [![github actions](https://github.com/remcohaszing/mermaid-isomorphic/actions/workflows/ci.yaml/badge.svg)](https://github.com/remcohaszing/mermaid-isomorphic/actions/workflows/ci.yaml)
 [![npm](https://img.shields.io/npm/v/mermaid-isomorphic)](https://www.npmjs.com/package/mermaid-isomorphic)
