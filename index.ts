@@ -76,9 +76,7 @@ export async function renderDiagrams({
 }: RenderDiagramsOptions): Promise<PromiseSettledResult<string>[]> {
   await Promise.all(Array.from(document.fonts, (font) => font.load()))
 
-  if (mermaidConfig) {
-    mermaid.initialize(mermaidConfig)
-  }
+  mermaid.initialize(mermaidConfig)
 
   return Promise.allSettled(
     diagrams.map((diagram, index) =>
