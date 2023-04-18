@@ -20,7 +20,7 @@ This library uses [Playwright](https://playwright.dev/) under the hood in Node.j
 install the Playwright browser before using this package.
 
 ```sh
-npx playwright install --with-deps chrome
+npx playwright install --with-deps chromium
 ```
 
 ## Usage
