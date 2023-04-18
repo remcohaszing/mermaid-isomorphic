@@ -69,11 +69,13 @@ interface RenderDiagramsOptions extends RenderOptions {
  * @param options The options used to render the diagrams
  * @returns A settled promise that holds the rendering results.
  */
-export function renderDiagrams({
+export async function renderDiagrams({
   diagrams,
   mermaidConfig,
   prefix
 }: RenderDiagramsOptions): Promise<PromiseSettledResult<string>[]> {
+  await Promise.all(Array.from(document.fonts, (font) => font.load()))
+
   if (mermaidConfig) {
     mermaid.initialize(mermaidConfig)
   }
