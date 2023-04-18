@@ -1,11 +1,15 @@
 import assert from 'node:assert/strict'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
+import { createRequire } from 'node:module'
 import { describe, test } from 'node:test'
+import { pathToFileURL } from 'node:url'
 
 import { chromium, firefox } from 'playwright-core'
 
 import { createMermaidRenderer } from './index.js'
 
+const require = createRequire(import.meta.url)
+const irishGrover = pathToFileURL(require.resolve('@fontsource/irish-grover'))
 const fixturesPath = new URL('fixtures/', import.meta.url)
 const fixtureNames = (await readdir(fixturesPath)).sort()
 
@@ -60,6 +64,22 @@ describe('single fixtures', () => {
 
       const results = await renderer([input], {
         mermaidConfig: { theme: 'dark', prefix: 'prefix' }
+      })
+
+      assert.equal(results.length, 1)
+      const [result] = results
+      assert.equal(result.status, 'fulfilled')
+
+      await validate(result.value)
+    })
+
+    test(`${name} custom font`, async () => {
+      const { input, validate } = await readFixture(name, 'custom-font.svg')
+      const renderer = createMermaidRenderer()
+
+      const results = await renderer([input], {
+        css: irishGrover,
+        mermaidConfig: { fontFamily: '"Irish Grover"' }
       })
 
       assert.equal(results.length, 1)

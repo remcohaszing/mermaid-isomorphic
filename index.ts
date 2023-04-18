@@ -30,6 +30,13 @@ export interface CreateMermaidRendererOptions {
 
 export interface RenderOptions {
   /**
+   * A URL that points to a custom CSS file to load.
+   *
+   * Use this to load custom fonts.
+   */
+  css?: URL | string | undefined
+
+  /**
    * The mermaid configuration.
    */
   mermaidConfig?: MermaidConfig | undefined
@@ -123,7 +130,11 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
     try {
       page = await browserInstance.newPage({ bypassCSP: true })
       await page.goto(html)
-      await Promise.all([page.addStyleTag(faStyle), page.addScriptTag(mermaidScript)])
+      const promises = [page.addStyleTag(faStyle), page.addScriptTag(mermaidScript)]
+      if (renderOptions?.css) {
+        promises.push(page.addStyleTag({ url: String(renderOptions.css) }))
+      }
+      await Promise.all(promises)
 
       renderResults = await page.evaluate(renderDiagrams, {
         diagrams,
