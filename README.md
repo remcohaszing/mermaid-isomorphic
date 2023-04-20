@@ -10,6 +10,19 @@ This is useful if you wish to render Mermaid diagrams in a Node.js or an isomorp
 you want to render Mermaid diagrams in the browser directly, use the
 [`mermaid`](https://www.npmjs.com/package/mermaid) package directly.
 
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Fonts](#fonts)
+    - [FontAwesome](#fontawesome)
+    - [Custom Fonts](#custom-fonts)
+- [API](#api)
+  - [`createMermaidRenderer(options?: CreateMermaidRendererOptions)`](#createmermaidrendereroptions-createmermaidrendereroptions)
+    - [Options](#options)
+    - [Returns](#returns)
+- [License](#license)
+
 ## Installation
 
 ```sh
@@ -68,12 +81,12 @@ The Mermaid renderer manages a browser instance. If multiple diagrams are being 
 simultaneously, the internal browser instance will be re-used. If no diagrams are being rendered,
 the browser will be closed.
 
-### Options
+#### Options
 
 - `browser` (`BrowserType`): The Playwright browser to use. (default: chromium)
 - `launchOptions`: (`LaunchOptions`): The options used to launch the browser.
 
-### Returns
+#### Returns
 
 A function that renders Mermaid diagrams in the browser. This function has the following call
 signature:
@@ -92,6 +105,6 @@ type MermaidRenderer = (
   - `mermaidOptions`: A custom Mermaid configuration. By default `fontFamily` is set to
     `arial,sans-serif`.
 
-### License
+## License
 
 [MIT](LICENSE.md) @ [Remco Haszing](https://github.com/remcohaszing)
