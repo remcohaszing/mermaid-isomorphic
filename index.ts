@@ -38,6 +38,8 @@ export interface RenderOptions {
 
   /**
    * The mermaid configuration.
+   *
+   * By default `fontFamily` is set to `arial,sans-serif`.
    */
   mermaidConfig?: MermaidConfig | undefined
 

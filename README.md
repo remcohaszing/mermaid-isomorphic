@@ -43,12 +43,20 @@ const results = await renderer([diagram])
 console.log(results)
 ```
 
-### FontAwesome
+### Fonts
+
+#### FontAwesome
 
 Mermaid has support for
 [FontAwesome](https://mermaid.js.org/syntax/flowchart.html#basic-support-for-fontawesome). This is
 also supported by `isomorphic-mermaid`, but you need to load the FontAwesome CSS yourself when
 serving the SVG.
+
+#### Custom Fonts
+
+By default `mermaid-isomorphic` uses the `arial,sans-serif` font family. This font family is mostly
+compatible across all browsers and devices. If you wish to use a custom font, you need to specify
+both the `mermaidConfig.fontFamily` and `css` options.
 
 ## API
 
@@ -79,8 +87,10 @@ type MermaidRenderer = (
 
 - `diagrams` (`string[]`): An array of mermaid diagrams to render.
 - `options`:
+  - `css` A URL that points to a custom CSS file to load. Use this to load custom fonts.
   - `prefix`: A custom prefix to use for Mermaid IDs (default: `mermaid`).
-  - `mermaidOptions`: A custom Mermaid configuration.
+  - `mermaidOptions`: A custom Mermaid configuration. By default `fontFamily` is set to
+    `arial,sans-serif`.
 
 ### License
 
