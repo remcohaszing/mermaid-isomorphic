@@ -5,6 +5,7 @@ import { describe, test } from 'node:test'
 import { pathToFileURL } from 'node:url'
 
 import { chromium, firefox } from 'playwright-core'
+import prettier from 'prettier'
 
 import { createMermaidRenderer } from './index.js'
 
@@ -34,7 +35,7 @@ async function readFixture(name: string, expectedName: string): Promise<FixtureT
   return {
     input,
     async validate(actual) {
-      const normalized = actual.replaceAll('><', '>\n<')
+      const normalized = prettier.format(actual, { parser: 'html' })
       if (process.argv.includes('update') || !expected) {
         await writeFile(expectedPath, normalized)
       }
