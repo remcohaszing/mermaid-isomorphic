@@ -3,6 +3,7 @@ import mermaid from 'mermaid'
 import { type MermaidRenderer, type createMermaidRenderer as nodeImplementation } from './index.js'
 
 const renderer: MermaidRenderer = (diagrams, options) =>
+  // @ts-expect-error We always return a string in the browser.
   Promise.allSettled(
     diagrams.map((diagram, index) =>
       mermaid

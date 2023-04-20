@@ -34,7 +34,11 @@ export interface CreateMermaidRendererOptions {
   launchOptions?: LaunchOptions
 }
 
-export interface RenderOptions {
+type Format = 'png' | 'svg'
+
+type RenderResults<F> = Promise<PromiseSettledResult<F extends 'png' ? Buffer : string>[]>
+
+export interface RenderOptions<F extends Format = 'svg'> {
   /**
    * A URL that points to a custom CSS file to load.
    *
@@ -45,13 +49,22 @@ export interface RenderOptions {
   css?: URL | string | undefined
 
   /**
+   * Whether to return the rendered diagram as an SVG string or a PNG buffer.
+   *
+   * PNG is only supported in the Node.js.
+   *
+   * @default 'svg'
+   */
+  format?: F
+
+  /**
    * The mermaid configuration.
    *
    * By default `fontFamily` is set to `arial,sans-serif`.
    *
    * This option is ignored in the browser. You need to call `mermaid.initialize()` manually.
    */
-  mermaidConfig: MermaidConfig
+  mermaidConfig?: MermaidConfig
 
   /**
    * The prefix of the id.
@@ -69,12 +82,13 @@ export interface RenderOptions {
  * @returns A list of settled promises that contains the rendered Mermaid diagram. Each result
  *   matches the same index of the input diagrams.
  */
-export type MermaidRenderer = (
+export type MermaidRenderer = <F extends Format = 'svg'>(
   diagrams: string[],
-  options?: RenderOptions
-) => Promise<PromiseSettledResult<string>[]>
+  options?: RenderOptions<F>
+) => Promise<PromiseSettledResult<F extends 'png' ? Buffer : string>[]>
 
-interface RenderDiagramsOptions extends RenderOptions {
+interface RenderDiagramsOptions<F extends Format = 'svg'>
+  extends Required<Pick<RenderOptions<F>, 'format' | 'mermaidConfig' | 'prefix'>> {
   /**
    * The diagrams to process.
    */
@@ -90,24 +104,33 @@ interface RenderDiagramsOptions extends RenderOptions {
  */
 export async function renderDiagrams({
   diagrams,
+  format,
   mermaidConfig,
   prefix
-}: RenderDiagramsOptions): Promise<PromiseSettledResult<string>[]> {
+}: RenderDiagramsOptions<Format>): Promise<PromiseSettledResult<string>[]> {
   await Promise.all(Array.from(document.fonts, (font) => font.load()))
 
   mermaid.initialize(mermaidConfig)
 
   return Promise.allSettled(
-    diagrams.map((diagram, index) =>
-      mermaid.render(`${prefix}-${index}`, diagram).then(
-        (result) => result.svg,
+    diagrams.map((diagram, index) => {
+      const id = `${prefix}-${index}`
+
+      return mermaid.render(id, diagram).then(
+        ({ svg }) => {
+          if (format === 'png') {
+            document.body.innerHTML += svg
+            return id
+          }
+          return svg
+        },
         (error) => {
           throw error instanceof Error
             ? { name: error.name, stack: error.stack, message: error.message }
             : error
         }
       )
-    )
+    })
   )
 }
 
@@ -129,7 +152,10 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
   let browserPromise: Promise<Browser> | undefined
   let count = 0
 
-  return async (diagrams, renderOptions) => {
+  return async <F extends Format = 'svg'>(
+    diagrams: string[],
+    renderOptions?: RenderOptions<F>
+  ): RenderResults<F> => {
     count += 1
     if (!browserPromise) {
       browserPromise = browser?.launch(launchOptions)
@@ -138,7 +164,7 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
     const browserInstance = await browserPromise
 
     let page: Page | undefined
-    let renderResults: PromiseSettledResult<string>[]
+    let renderResults: PromiseSettledResult<Buffer | string>[]
 
     try {
       page = await browserInstance.newPage({ bypassCSP: true })
@@ -151,12 +177,22 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
 
       renderResults = await page.evaluate(renderDiagrams, {
         diagrams,
+        format: renderOptions?.format ?? 'svg',
         mermaidConfig: {
           fontFamily: 'arial,sans-serif',
           ...renderOptions?.mermaidConfig
         },
         prefix: renderOptions?.prefix ?? 'mermaid'
-      })
+      } as RenderDiagramsOptions<Format>)
+      if (renderOptions?.format === 'png') {
+        for (const result of renderResults) {
+          if (result.status === 'fulfilled') {
+            result.value = await page
+              .locator(`#${result.value}`)
+              .screenshot({ omitBackground: true })
+          }
+        }
+      }
     } finally {
       await page?.close()
       count -= 1
@@ -178,6 +214,6 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
       }
     }
 
-    return renderResults
+    return renderResults as PromiseSettledResult<F extends 'png' ? Buffer : string>[]
   }
 }

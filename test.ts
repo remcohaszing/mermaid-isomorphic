@@ -17,7 +17,7 @@ const fixtureNames = (await readdir(fixturesPath)).sort()
 
 interface FixtureTest {
   input: string
-  validate: (actual: string) => Promise<void>
+  validate: (actual: Buffer | string) => Promise<void>
 }
 
 async function readFixture(name: string, expectedName: string): Promise<FixtureTest> {
@@ -26,9 +26,10 @@ async function readFixture(name: string, expectedName: string): Promise<FixtureT
   const expectedPath = new URL(expectedName, fixturePath)
 
   const input = await readFile(inputPath, 'utf8')
-  let expected: string | undefined
+  const isBuffer = expectedName.endsWith('.png')
+  let expected: Buffer | string | undefined
   try {
-    expected = await readFile(expectedPath, 'utf8')
+    expected = await readFile(expectedPath, isBuffer ? undefined : 'utf8')
   } catch {
     await writeFile(expectedPath, '')
   }
@@ -36,11 +37,18 @@ async function readFixture(name: string, expectedName: string): Promise<FixtureT
   return {
     input,
     async validate(actual) {
-      const normalized = prettier.format(actual, { parser: 'html' })
-      if (process.argv.includes('update') || !expected) {
-        await writeFile(expectedPath, normalized)
+      if (typeof actual === 'string') {
+        const normalized = prettier.format(actual, { parser: 'html' })
+        if (process.argv.includes('update') || !expected) {
+          await writeFile(expectedPath, normalized)
+        }
+        assert.equal(normalized, expected)
+      } else {
+        if (process.argv.includes('update') || !expected) {
+          await writeFile(expectedPath, actual)
+        }
+        assert.ok(actual.equals(expected as Buffer))
       }
-      assert.equal(normalized, expected)
     }
   }
 }
@@ -104,25 +112,20 @@ describe('node', () => {
 
       await validate(result.value)
     })
-  }
 
-  test('multiple diagrams', async () => {
-    const fixtures = await Promise.all(
-      fixtureNames.map((name) => readFixture(name, 'multiple.svg'))
-    )
-    const renderer = createMermaidRenderer()
-    const results = await renderer(fixtures.map((fixture) => fixture.input))
+    test(`${name} png`, async () => {
+      const { input, validate } = await readFixture(name, 'expected.png')
+      const renderer = createMermaidRenderer({})
 
-    assert.equal(results.length, fixtures.length)
+      const results = await renderer([input], { format: 'png' })
 
-    for (const [index, result] of results.entries()) {
+      assert.equal(results.length, 1)
+      const [result] = results
       assert.equal(result.status, 'fulfilled')
 
-      const { validate } = fixtures[index]
-
       await validate(result.value)
-    }
-  })
+    })
+  }
 
   test('handle errors', async () => {
     const renderer = createMermaidRenderer({ browser: chromium })
