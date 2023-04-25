@@ -173,9 +173,13 @@ describe('browser', () => {
     const { input, validate } = await readFixture('simple', 'browser.svg')
     const results = await page.evaluate(
       (diagram) =>
-        createMermaidRenderer()([diagram], {
-          mermaidConfig: { fontFamily: 'arial,sans-serif' }
-        }),
+        createMermaidRenderer()([
+          `%%{
+            init: {
+              "fontFamily": "arial,sans-serif"
+            }
+          }%%\n${diagram}`
+        ]),
       input
     )
 
