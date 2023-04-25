@@ -1,10 +1,11 @@
 import assert from 'node:assert/strict'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
-import { describe, test } from 'node:test'
+import { after, before, describe, test } from 'node:test'
 import { pathToFileURL } from 'node:url'
 
-import { chromium, firefox } from 'playwright-core'
+import { build } from 'esbuild'
+import { type Browser, chromium, firefox } from 'playwright-core'
 import prettier from 'prettier'
 
 import { createMermaidRenderer } from './index.js'
@@ -132,4 +133,48 @@ test('handle errors', async () => {
   assert(result.reason instanceof Error)
   assert.equal(result.reason.name, 'Error')
   assert.match(result.reason.stack!, /\/node_modules\/mermaid\/dist\/mermaid\.js:\d+:\d+/)
+})
+
+describe('browser', () => {
+  let browser: Browser
+  let content: string
+
+  before(async () => {
+    const output = await build({
+      bundle: true,
+      entryPoints: ['./browser.ts'],
+      format: 'cjs',
+      write: false
+    })
+    assert.deepEqual(output.errors, [])
+    assert.deepEqual(output.warnings, [])
+    assert.equal(output.outputFiles.length, 1)
+    content = `(() => {
+      let module = {};
+
+      ${output.outputFiles[0].text}
+
+      Object.assign(window, module.exports)
+    })()`
+
+    browser = await chromium.launch({ headless: true })
+  })
+
+  after(async () => {
+    await browser?.close()
+  })
+
+  test('generate diagram', async () => {
+    const page = await browser.newPage()
+    await page.addScriptTag({ content })
+
+    const { input, validate } = await readFixture('simple', 'browser.svg')
+    const results = await page.evaluate((diagram) => createMermaidRenderer()([diagram]), input)
+
+    assert.equal(results.length, 1)
+    const [result] = results
+    assert.equal(result.status, 'fulfilled')
+
+    await validate(result.value)
+  })
 })
