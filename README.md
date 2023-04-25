@@ -21,6 +21,7 @@ you want to render Mermaid diagrams in the browser directly, use the
   - [`createMermaidRenderer(options?: CreateMermaidRendererOptions)`](#createmermaidrendereroptions-createmermaidrendereroptions)
     - [Options](#options)
     - [Returns](#returns)
+- [Contributing](#contributing)
 - [License](#license)
 
 ## Installation
@@ -104,6 +105,13 @@ type MermaidRenderer = (
   - `prefix`: A custom prefix to use for Mermaid IDs (default: `mermaid`).
   - `mermaidOptions`: A custom Mermaid configuration. By default `fontFamily` is set to
     `arial,sans-serif`.
+
+## Contributing
+
+Test fixtures are generated and verified using Linux. Rendering on other platforms may yield
+slightly different results. Don’t worry about adding new fixtures, but don’t update existing ones
+that cause CI to fail. Furthermore see my global
+[contributing guidelines](https://github.com/remcohaszing/.github/blob/main/CONTRIBUTING.md).
 
 ## License
 
