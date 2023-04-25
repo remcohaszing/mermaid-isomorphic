@@ -1,6 +1,6 @@
 import mermaid from 'mermaid'
 
-import { MermaidRenderer, createMermaidRenderer as nodeImplementation } from './index.js'
+import { type MermaidRenderer, type createMermaidRenderer as nodeImplementation } from './index.js'
 
 const renderer: MermaidRenderer = (diagrams, options) =>
   Promise.allSettled(

@@ -1,14 +1,20 @@
 import { createRequire } from 'node:module'
 import { pathToFileURL } from 'node:url'
 
-import { MermaidConfig } from 'mermaid'
-import { Browser, BrowserType, chromium, LaunchOptions, Page } from 'playwright-core'
+import { type Mermaid, type MermaidConfig } from 'mermaid'
+import {
+  type Browser,
+  type BrowserType,
+  chromium,
+  type LaunchOptions,
+  type Page
+} from 'playwright-core'
 
-declare const mermaid: typeof import('mermaid').default
+declare const mermaid: Mermaid
 
 const require = createRequire(import.meta.url)
 const html = String(new URL('index.html', import.meta.url))
-const mermaidScript = { path: require.resolve('mermaid') }
+const mermaidScript = { path: require.resolve('mermaid/dist/mermaid.js') }
 const faStyle = {
   // We use url, not path. If we use path, the fonts can’t be resolved.
   url: String(pathToFileURL(require.resolve('@fortawesome/fontawesome-free/css/all.css')))
@@ -41,7 +47,7 @@ export interface RenderOptions {
    *
    * By default `fontFamily` is set to `arial,sans-serif`.
    */
-  mermaidConfig?: MermaidConfig | undefined
+  mermaidConfig: MermaidConfig
 
   /**
    * The prefix of the id.
@@ -57,7 +63,7 @@ export interface RenderOptions {
  * @param diagrams The Mermaid diagrams to render.
  * @param options Additional options to use when rendering the diagrams.
  * @returns A list of settled promises that contains the rendered Mermaid diagram. Each result
- * matches the same index of the input diagrams.
+ *   matches the same index of the input diagrams.
  */
 export type MermaidRenderer = (
   diagrams: string[],
@@ -100,6 +106,7 @@ export async function renderDiagrams({
     )
   )
 }
+
 /* c8 ignore stop */
 
 /**

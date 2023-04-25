@@ -64,7 +64,8 @@ describe('single fixtures', () => {
       const renderer = createMermaidRenderer()
 
       const results = await renderer([input], {
-        mermaidConfig: { theme: 'dark', prefix: 'prefix' }
+        mermaidConfig: { theme: 'dark' },
+        prefix: 'prefix'
       })
 
       assert.equal(results.length, 1)

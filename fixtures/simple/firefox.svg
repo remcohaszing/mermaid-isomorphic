@@ -53,11 +53,13 @@
     #mermaid-0 .cluster-label text {
       fill: #333;
     }
-    #mermaid-0 .cluster-label span {
+    #mermaid-0 .cluster-label span,
+    #mermaid-0 p {
       color: #333;
     }
     #mermaid-0 .label text,
-    #mermaid-0 span {
+    #mermaid-0 span,
+    #mermaid-0 p {
       fill: #333;
       color: #333;
     }
@@ -69,6 +71,9 @@
       fill: #ececff;
       stroke: #9370db;
       stroke-width: 1px;
+    }
+    #mermaid-0 .flowchart-label text {
+      text-anchor: middle;
     }
     #mermaid-0 .node .label {
       text-align: center;
@@ -104,7 +109,8 @@
     #mermaid-0 .cluster text {
       fill: #333;
     }
-    #mermaid-0 .cluster span {
+    #mermaid-0 .cluster span,
+    #mermaid-0 p {
       color: #333;
     }
     #mermaid-0 div.mermaidTooltip {
@@ -137,7 +143,7 @@
       markerUnits="userSpaceOnUse"
       refY="5"
       refX="10"
-      viewBox="0 0 12 20"
+      viewBox="0 0 10 10"
       class="marker flowchart"
       id="flowchart-pointEnd"
     >
@@ -318,7 +324,7 @@
         <g
           transform="translate(50.88750457763672, 17)"
           id="flowchart-A-16"
-          class="node default default"
+          class="node default default flowchart-label"
         >
           <rect
             height="34"
@@ -335,6 +341,7 @@
             style=""
             class="label"
           >
+            <rect></rect>
             <foreignObject height="19" width="10.666671752929688"
               ><div
                 xmlns="http://www.w3.org/1999/xhtml"
@@ -348,7 +355,7 @@
         <g
           transform="translate(12.833335876464844, 101)"
           id="flowchart-B-17"
-          class="node default default"
+          class="node default default flowchart-label"
         >
           <rect
             height="34"
@@ -365,6 +372,7 @@
             style=""
             class="label"
           >
+            <rect></rect>
             <foreignObject height="19" width="10.666671752929688"
               ><div
                 xmlns="http://www.w3.org/1999/xhtml"
@@ -378,7 +386,7 @@
         <g
           transform="translate(88.9416732788086, 101)"
           id="flowchart-C-19"
-          class="node default default"
+          class="node default default flowchart-label"
         >
           <rect
             height="34"
@@ -395,6 +403,7 @@
             style=""
             class="label"
           >
+            <rect></rect>
             <foreignObject height="19" width="11.550003051757812"
               ><div
                 xmlns="http://www.w3.org/1999/xhtml"
@@ -408,7 +417,7 @@
         <g
           transform="translate(50.88750457763672, 185)"
           id="flowchart-D-21"
-          class="node default default"
+          class="node default default flowchart-label"
         >
           <rect
             height="34"
@@ -425,6 +434,7 @@
             style=""
             class="label"
           >
+            <rect></rect>
             <foreignObject height="19" width="11.550003051757812"
               ><div
                 xmlns="http://www.w3.org/1999/xhtml"
