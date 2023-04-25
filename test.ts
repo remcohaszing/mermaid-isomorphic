@@ -171,7 +171,13 @@ describe('browser', () => {
     await page.addScriptTag({ content })
 
     const { input, validate } = await readFixture('simple', 'browser.svg')
-    const results = await page.evaluate((diagram) => createMermaidRenderer()([diagram]), input)
+    const results = await page.evaluate(
+      (diagram) =>
+        createMermaidRenderer()([diagram], {
+          mermaidConfig: { fontFamily: 'arial,sans-serif' }
+        }),
+      input
+    )
 
     assert.equal(results.length, 1)
     const [result] = results
