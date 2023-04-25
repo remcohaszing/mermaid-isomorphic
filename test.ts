@@ -45,7 +45,7 @@ async function readFixture(name: string, expectedName: string): Promise<FixtureT
   }
 }
 
-describe('single fixtures', () => {
+describe('node', () => {
   for (const name of fixtureNames) {
     test(name, async () => {
       const { input, validate } = await readFixture(name, 'expected.svg')
@@ -105,34 +105,36 @@ describe('single fixtures', () => {
       await validate(result.value)
     })
   }
-})
 
-test('multiple diagrams', async () => {
-  const fixtures = await Promise.all(fixtureNames.map((name) => readFixture(name, 'multiple.svg')))
-  const renderer = createMermaidRenderer()
-  const results = await renderer(fixtures.map((fixture) => fixture.input))
+  test('multiple diagrams', async () => {
+    const fixtures = await Promise.all(
+      fixtureNames.map((name) => readFixture(name, 'multiple.svg'))
+    )
+    const renderer = createMermaidRenderer()
+    const results = await renderer(fixtures.map((fixture) => fixture.input))
 
-  assert.equal(results.length, fixtures.length)
+    assert.equal(results.length, fixtures.length)
 
-  for (const [index, result] of results.entries()) {
-    assert.equal(result.status, 'fulfilled')
+    for (const [index, result] of results.entries()) {
+      assert.equal(result.status, 'fulfilled')
 
-    const { validate } = fixtures[index]
+      const { validate } = fixtures[index]
 
-    await validate(result.value)
-  }
-})
+      await validate(result.value)
+    }
+  })
 
-test('handle errors', async () => {
-  const renderer = createMermaidRenderer({ browser: chromium })
-  const results = await renderer(['graph'])
+  test('handle errors', async () => {
+    const renderer = createMermaidRenderer({ browser: chromium })
+    const results = await renderer(['graph'])
 
-  assert.equal(results.length, 1)
-  const [result] = results
-  assert.strictEqual(result.status, 'rejected' as const)
-  assert(result.reason instanceof Error)
-  assert.equal(result.reason.name, 'Error')
-  assert.match(result.reason.stack!, /\/node_modules\/mermaid\/dist\/mermaid\.js:\d+:\d+/)
+    assert.equal(results.length, 1)
+    const [result] = results
+    assert.strictEqual(result.status, 'rejected' as const)
+    assert(result.reason instanceof Error)
+    assert.equal(result.reason.name, 'Error')
+    assert.match(result.reason.stack!, /\/node_modules\/mermaid\/dist\/mermaid\.js:\d+:\d+/)
+  })
 })
 
 describe('browser', () => {
