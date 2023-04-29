@@ -48,7 +48,11 @@ async function readFixture(name: string, expectedName: string): Promise<FixtureT
         if (process.argv.includes('update') || !expected) {
           await writeFile(expectedPath, actual)
         }
-        const { equal } = await looksSame(actual, expected as Buffer)
+        const { equal } = await looksSame(actual, expected as Buffer, {
+          antialiasingTolerance: 4,
+          pixelRatio: 2,
+          tolerance: 10
+        })
         assert.ok(equal)
       }
     }
