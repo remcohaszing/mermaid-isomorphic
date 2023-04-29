@@ -47,7 +47,6 @@
     "esbuild": "^0.17.0",
     "eslint": "^8.0.0",
     "eslint-config-remcohaszing": "^9.0.0",
-    "looks-same": "^8.0.0",
     "prettier": "^2.0.0",
     "remark-cli": "^11.0.0",
     "remark-preset-remcohaszing": "^1.0.0",

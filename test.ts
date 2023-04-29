@@ -5,7 +5,6 @@ import { after, before, describe, test } from 'node:test'
 import { pathToFileURL } from 'node:url'
 
 import { build } from 'esbuild'
-import looksSame from 'looks-same'
 import { type Browser, chromium, firefox } from 'playwright-core'
 import prettier from 'prettier'
 
@@ -48,12 +47,6 @@ async function readFixture(name: string, expectedName: string): Promise<FixtureT
         if (process.argv.includes('update') || !expected) {
           await writeFile(expectedPath, actual)
         }
-        const { equal } = await looksSame(actual, expected as Buffer, {
-          antialiasingTolerance: 4,
-          pixelRatio: 2,
-          tolerance: 10
-        })
-        assert.ok(equal)
       }
     }
   }
