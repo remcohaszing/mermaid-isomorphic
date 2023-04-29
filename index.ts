@@ -39,6 +39,8 @@ export interface RenderOptions {
    * A URL that points to a custom CSS file to load.
    *
    * Use this to load custom fonts.
+   *
+   * This option is ignored in the browser. You need to include the CSS in your build manually.
    */
   css?: URL | string | undefined
 
@@ -46,6 +48,8 @@ export interface RenderOptions {
    * The mermaid configuration.
    *
    * By default `fontFamily` is set to `arial,sans-serif`.
+   *
+   * This option is ignored in the browser. You need to call `mermaid.initialize()` manually.
    */
   mermaidConfig: MermaidConfig
 

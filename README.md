@@ -17,6 +17,7 @@ you want to render Mermaid diagrams in the browser directly, use the
   - [Fonts](#fonts)
     - [FontAwesome](#fontawesome)
     - [Custom Fonts](#custom-fonts)
+  - [Browser](#browser)
 - [API](#api)
   - [`createMermaidRenderer(options?: CreateMermaidRendererOptions)`](#createmermaidrendereroptions-createmermaidrendereroptions)
     - [Options](#options)
@@ -72,6 +73,12 @@ By default `mermaid-isomorphic` uses the `arial,sans-serif` font family. This fo
 compatible across all browsers and devices. If you wish to use a custom font, you need to specify
 both the `mermaidConfig.fontFamily` and `css` options.
 
+### Browser
+
+`mermaid-isomorphic` is intended for use in Node.js, but also provides a browser export. This means
+it can be used in the browser, but it’s recommended to use the
+[mermaid](https://mermaid-js.github.io) package directly.
+
 ## API
 
 ### `createMermaidRenderer(options?: CreateMermaidRendererOptions)`
@@ -101,10 +108,12 @@ type MermaidRenderer = (
 
 - `diagrams` (`string[]`): An array of mermaid diagrams to render.
 - `options`:
-  - `css` A URL that points to a custom CSS file to load. Use this to load custom fonts.
+  - `css` A URL that points to a custom CSS file to load. Use this to load custom fonts. This option
+    is ignored in the browser. You need to include the CSS in your build manually.
   - `prefix`: A custom prefix to use for Mermaid IDs (default: `mermaid`).
   - `mermaidOptions`: A custom Mermaid configuration. By default `fontFamily` is set to
-    `arial,sans-serif`.
+    `arial,sans-serif`. This option is ignored in the browser. You need to call
+    `mermaid.initialize()` manually.
 
 ## Contributing
 
