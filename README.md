@@ -103,15 +103,24 @@ A function that renders Mermaid diagrams in the browser. This function has argum
   - `css` (`string` | `URL`) A URL that points to a custom CSS file to load. Use this to load custom
     fonts. This option is ignored in the browser. You need to include the CSS in your build
     manually.
-  - `format` (`png` | `svg`): Whether to return the rendered diagram as an SVG string or a PNG
-    buffer. PNG is only supported in Node.js.
+  - `screenshot` (`boolean`): If true, a PNG screenshot of the diagram is included as a buffer. This
+    is only supported in Node.js.
   - `prefix` (`string`): A custom prefix to use for Mermaid IDs (default: `mermaid`).
   - `mermaidOptions` (`MermaidConfig`): A custom Mermaid configuration. By default `fontFamily` is
     set to `arial,sans-serif`. This option is ignored in the browser. You need to call
     `mermaid.initialize()` manually.
 
-It returns a promise settled result with the rendered diagrams as a string or buffer depending on
-the format.
+It returns a promise settled result with the render results. The render results have the following
+properties:
+
+- `description` (`string`): The aria description of the diagram, if it has one.
+- `height` (`number`): The height of the resulting SVG.
+- `id` (`string`): The DOM id of the SVG node.
+- `screenshot` (`Buffer`): The diagram SVG rendered as a PNG buffer. This is only added if the
+  `screenshot` option is true.
+- `svg` (`string`): The diagram rendered as an SVG.
+- `title` (`string`): The title of the rendered diagram, if it has one.
+- `width` (`number`): The width of the resulting SVG.
 
 ## Contributing
 

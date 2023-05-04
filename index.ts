@@ -34,11 +34,44 @@ export interface CreateMermaidRendererOptions {
   launchOptions?: LaunchOptions
 }
 
-type Format = 'png' | 'svg'
+export interface RenderResult {
+  /**
+   * The aria description of the diagram.
+   */
+  description?: string
 
-type RenderResults<F> = Promise<PromiseSettledResult<F extends 'png' ? Buffer : string>[]>
+  /**
+   * The height of the resulting SVG.
+   */
+  height: number
 
-export interface RenderOptions<F extends Format = 'svg'> {
+  /**
+   * The DOM id of the SVG node.
+   */
+  id: string
+
+  /**
+   * The diagram SVG rendered as a PNG buffer.
+   */
+  screenshot?: Buffer
+
+  /**
+   * The diagram rendered as an SVG.
+   */
+  svg: string
+
+  /**
+   * The title of the rendered diagram.
+   */
+  title?: string
+
+  /**
+   * The width of the resulting SVG.
+   */
+  width: number
+}
+
+export interface RenderOptions {
   /**
    * A URL that points to a custom CSS file to load.
    *
@@ -49,13 +82,11 @@ export interface RenderOptions<F extends Format = 'svg'> {
   css?: URL | string | undefined
 
   /**
-   * Whether to return the rendered diagram as an SVG string or a PNG buffer.
+   * If true, a PNG screenshot of the diagram will be added.
    *
-   * PNG is only supported in the Node.js.
-   *
-   * @default 'svg'
+   * This is only supported in the Node.js.
    */
-  format?: F
+  screenshot?: boolean
 
   /**
    * The mermaid configuration.
@@ -82,13 +113,13 @@ export interface RenderOptions<F extends Format = 'svg'> {
  * @returns A list of settled promises that contains the rendered Mermaid diagram. Each result
  *   matches the same index of the input diagrams.
  */
-export type MermaidRenderer = <F extends Format = 'svg'>(
+export type MermaidRenderer = (
   diagrams: string[],
-  options?: RenderOptions<F>
-) => Promise<PromiseSettledResult<F extends 'png' ? Buffer : string>[]>
+  options?: RenderOptions
+) => Promise<PromiseSettledResult<RenderResult>[]>
 
-interface RenderDiagramsOptions<F extends Format = 'svg'>
-  extends Required<Pick<RenderOptions<F>, 'format' | 'mermaidConfig' | 'prefix'>> {
+interface RenderDiagramsOptions
+  extends Required<Pick<RenderOptions, 'mermaidConfig' | 'prefix' | 'screenshot'>> {
   /**
    * The diagrams to process.
    */
@@ -104,32 +135,71 @@ interface RenderDiagramsOptions<F extends Format = 'svg'>
  */
 export async function renderDiagrams({
   diagrams,
-  format,
   mermaidConfig,
-  prefix
-}: RenderDiagramsOptions<Format>): Promise<PromiseSettledResult<string>[]> {
+  prefix,
+  screenshot
+}: RenderDiagramsOptions): Promise<PromiseSettledResult<RenderResult>[]> {
   await Promise.all(Array.from(document.fonts, (font) => font.load()))
+  const parser = new DOMParser()
 
   mermaid.initialize(mermaidConfig)
 
+  /**
+   * Get an aria value form a referencing attribute.
+   *
+   * @param element The SVG element the get the value from.
+   * @param attribute The attribute whose value to get.
+   * @returns The aria value.
+   */
+  // eslint-disable-next-line unicorn/consistent-function-scoping
+  function getAriaValue(element: SVGSVGElement, attribute: string): string | undefined {
+    const value = element.getAttribute(attribute)
+    if (!value) {
+      return
+    }
+
+    let result = ''
+    for (const id of value.split(/\s+/)) {
+      const node = element.getElementById(id)
+      if (node) {
+        result += node.textContent
+      }
+    }
+    return result
+  }
+
   return Promise.allSettled(
-    diagrams.map((diagram, index) => {
+    diagrams.map(async (diagram, index) => {
       const id = `${prefix}-${index}`
 
-      return mermaid.render(id, diagram).then(
-        ({ svg }) => {
-          if (format === 'png') {
-            document.body.innerHTML += svg
-            return id
-          }
-          return svg
-        },
-        (error) => {
-          throw error instanceof Error
-            ? { name: error.name, stack: error.stack, message: error.message }
-            : error
+      try {
+        const { svg } = await mermaid.render(id, diagram)
+        const root = parser.parseFromString(svg, 'image/svg+xml')
+        const element = root.firstChild as SVGSVGElement
+        const { height, width } = element.viewBox.baseVal
+        const description = getAriaValue(element, 'aria-describedby')
+        const title = getAriaValue(element, 'aria-labelledby')
+
+        if (screenshot) {
+          document.body.append(element)
         }
-      )
+
+        const result: RenderResult = { height, id, svg, width }
+
+        if (description) {
+          result.description = description
+        }
+
+        if (title) {
+          result.title = title
+        }
+
+        return result
+      } catch (error) {
+        throw error instanceof Error
+          ? { name: error.name, stack: error.stack, message: error.message }
+          : error
+      }
     })
   )
 }
@@ -152,10 +222,7 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
   let browserPromise: Promise<Browser> | undefined
   let count = 0
 
-  return async <F extends Format = 'svg'>(
-    diagrams: string[],
-    renderOptions?: RenderOptions<F>
-  ): RenderResults<F> => {
+  return async (diagrams, renderOptions) => {
     count += 1
     if (!browserPromise) {
       browserPromise = browser?.launch(launchOptions)
@@ -164,7 +231,7 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
     const browserInstance = await browserPromise
 
     let page: Page | undefined
-    let renderResults: PromiseSettledResult<Buffer | string>[]
+    let renderResults: PromiseSettledResult<RenderResult>[]
 
     try {
       page = await browserInstance.newPage({ bypassCSP: true })
@@ -177,18 +244,18 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
 
       renderResults = await page.evaluate(renderDiagrams, {
         diagrams,
-        format: renderOptions?.format ?? 'svg',
+        screenshot: Boolean(renderOptions?.screenshot),
         mermaidConfig: {
           fontFamily: 'arial,sans-serif',
           ...renderOptions?.mermaidConfig
         },
         prefix: renderOptions?.prefix ?? 'mermaid'
-      } as RenderDiagramsOptions<Format>)
-      if (renderOptions?.format === 'png') {
+      })
+      if (renderOptions?.screenshot) {
         for (const result of renderResults) {
           if (result.status === 'fulfilled') {
-            result.value = await page
-              .locator(`#${result.value}`)
+            result.value.screenshot = await page
+              .locator(`#${result.value.id}`)
               .screenshot({ omitBackground: true })
           }
         }
@@ -214,6 +281,6 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
       }
     }
 
-    return renderResults as PromiseSettledResult<F extends 'png' ? Buffer : string>[]
+    return renderResults
   }
 }
