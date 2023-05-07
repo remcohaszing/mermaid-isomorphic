@@ -133,7 +133,7 @@ interface RenderDiagramsOptions
  * @param options The options used to render the diagrams
  * @returns A settled promise that holds the rendering results.
  */
-export async function renderDiagrams({
+async function renderDiagrams({
   diagrams,
   mermaidConfig,
   prefix,
