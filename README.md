@@ -131,4 +131,4 @@ that cause CI to fail. Furthermore see my global
 
 ## License
 
-[MIT](LICENSE.md) @ [Remco Haszing](https://github.com/remcohaszing)
+[MIT](LICENSE.md) © [Remco Haszing](https://github.com/remcohaszing)
