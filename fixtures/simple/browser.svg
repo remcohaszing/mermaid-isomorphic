@@ -108,6 +108,9 @@
       background-color: #e8e8e8;
       fill: #e8e8e8;
     }
+    #mermaid-0 .labelBkg {
+      background-color: rgba(232, 232, 232, 0.5);
+    }
     #mermaid-0 .cluster rect {
       fill: #ffffde;
       stroke: #aaaa33;

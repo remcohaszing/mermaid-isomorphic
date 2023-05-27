@@ -36,12 +36,12 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.0.0",
-    "mermaid": "10.2.0-rc.2",
+    "mermaid": "^10.0.0",
     "playwright-core": "^1.0.0"
   },
   "devDependencies": {
-    "@fontsource/irish-grover": "^4.0.0",
-    "@types/node": "^18.0.0",
+    "@fontsource/irish-grover": "^5.0.0",
+    "@types/node": "*",
     "@types/prettier": "^2.0.0",
     "c8": "^7.0.0",
     "esbuild": "^0.17.0",

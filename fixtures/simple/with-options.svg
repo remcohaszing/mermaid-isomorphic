@@ -108,6 +108,9 @@
       background-color: hsl(0, 0%, 34.4117647059%);
       fill: hsl(0, 0%, 34.4117647059%);
     }
+    #prefix-0 .labelBkg {
+      background-color: rgba(87.75, 87.75, 87.75, 0.5);
+    }
     #prefix-0 .cluster rect {
       fill: hsl(180, 1.5873015873%, 28.3529411765%);
       stroke: rgba(255, 255, 255, 0.25);
