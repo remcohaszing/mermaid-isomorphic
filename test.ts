@@ -116,13 +116,13 @@ describe('node', () => {
 
   test('handle errors', async () => {
     const renderer = createMermaidRenderer({ browser: chromium })
-    const results = await renderer(['graph'])
+    const results = await renderer(['invalid'])
 
     assert.equal(results.length, 1)
     const [result] = results
     assert.strictEqual(result.status, 'rejected' as const)
     assert(result.reason instanceof Error)
-    assert.equal(result.reason.name, 'Error')
+    assert.equal(result.reason.name, 'UnknownDiagramError')
     assert.match(result.reason.stack!, /\/node_modules\/mermaid\/dist\/mermaid\.js:\d+:\d+/)
   })
 })
