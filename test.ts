@@ -37,7 +37,7 @@ async function readFixture(name: string, expectedName: string): Promise<FixtureT
   return {
     input,
     async validate({ screenshot, svg, ...meta }) {
-      const normalized = prettier.format(
+      const normalized = await prettier.format(
         `<!--\n${JSON.stringify(meta, undefined, 2)}\n-->\n${svg}`,
         { parser: 'html' }
       )
