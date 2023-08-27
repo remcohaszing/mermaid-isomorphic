@@ -22,6 +22,7 @@ you want to render Mermaid diagrams in the browser directly, use the
   - [`createMermaidRenderer(options?: CreateMermaidRendererOptions)`](#createmermaidrendereroptions-createmermaidrendereroptions)
     - [Options](#options)
     - [Returns](#returns)
+- [Compatibility](#compatibility)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -121,6 +122,10 @@ properties:
 - `svg` (`string`): The diagram rendered as an SVG.
 - `title` (`string`): The title of the rendered diagram, if it has one.
 - `width` (`number`): The width of the resulting SVG.
+
+## Compatibility
+
+This project is compatible with Node.js 16 or greater.
 
 ## Contributing
 
