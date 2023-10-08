@@ -161,7 +161,7 @@
         style="stroke-width: 1px; stroke-dasharray: 1px, 0px"
         class="arrowMarkerPath"
         d="M 0 0 L 10 5 L 0 10 z"
-      ></path>
+      />
     </marker>
     <marker
       orient="auto"
@@ -178,7 +178,7 @@
         style="stroke-width: 1px; stroke-dasharray: 1px, 0px"
         class="arrowMarkerPath"
         d="M 0 5 L 10 10 L 10 0 z"
-      ></path>
+      />
     </marker>
     <marker
       orient="auto"
@@ -197,7 +197,7 @@
         r="5"
         cy="5"
         cx="5"
-      ></circle>
+      />
     </marker>
     <marker
       orient="auto"
@@ -216,7 +216,7 @@
         r="5"
         cy="5"
         cx="5"
-      ></circle>
+      />
     </marker>
     <marker
       orient="auto"
@@ -233,7 +233,7 @@
         style="stroke-width: 2px; stroke-dasharray: 1px, 0px"
         class="arrowMarkerPath"
         d="M 1,1 l 9,9 M 10,1 l -9,9"
-      ></path>
+      />
     </marker>
     <marker
       orient="auto"
@@ -250,12 +250,12 @@
         style="stroke-width: 2px; stroke-dasharray: 1px, 0px"
         class="arrowMarkerPath"
         d="M 1,1 l 9,9 M 10,1 l -9,9"
-      ></path>
+      />
     </marker>
     <g class="root">
-      <g class="clusters"></g>
-      <g class="edgePaths"></g>
-      <g class="edgeLabels"></g>
+      <g class="clusters" />
+      <g class="edgePaths" />
+      <g class="edgeLabels" />
       <g class="nodes">
         <g
           transform="translate(13.724998474121094, 17)"
@@ -271,13 +271,13 @@
             rx="0"
             style=""
             class="basic label-container"
-          ></rect>
+          />
           <g
             transform="translate(-6.224998474121094, -9.5)"
             style=""
             class="label"
           >
-            <rect></rect>
+            <rect />
             <foreignObject height="19" width="12.449996948242188"
               ><div
                 xmlns="http://www.w3.org/1999/xhtml"
