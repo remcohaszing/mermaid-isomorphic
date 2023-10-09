@@ -141,6 +141,7 @@ async function renderDiagrams({
 }: RenderDiagramsOptions): Promise<PromiseSettledResult<RenderResult>[]> {
   await Promise.all(Array.from(document.fonts, (font) => font.load()))
   const parser = new DOMParser()
+  const serializer = new XMLSerializer()
 
   mermaid.initialize(mermaidConfig)
 
@@ -174,8 +175,8 @@ async function renderDiagrams({
 
       try {
         const { svg } = await mermaid.render(id, diagram)
-        const root = parser.parseFromString(svg, 'image/svg+xml')
-        const element = root.firstChild as SVGSVGElement
+        const root = parser.parseFromString(svg, 'text/html')
+        const [element] = root.getElementsByTagName('svg')
         const { height, width } = element.viewBox.baseVal
         const description = getAriaValue(element, 'aria-describedby')
         const title = getAriaValue(element, 'aria-labelledby')
@@ -184,7 +185,12 @@ async function renderDiagrams({
           document.body.append(element)
         }
 
-        const result: RenderResult = { height, id, svg, width }
+        const result: RenderResult = {
+          height,
+          id,
+          svg: serializer.serializeToString(element),
+          width
+        }
 
         if (description) {
           result.description = description

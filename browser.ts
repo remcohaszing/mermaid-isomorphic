@@ -7,6 +7,7 @@ import {
 } from './index.js'
 
 const parser = new DOMParser()
+const serializer = new XMLSerializer()
 
 /**
  * Get an aria value form a referencing attribute.
@@ -37,13 +38,18 @@ const renderer: MermaidRenderer = (diagrams, options) =>
       const id = `${options?.prefix ?? 'mermaid'}-${index}`
 
       const { svg } = await mermaid.render(id, diagram)
-      const root = parser.parseFromString(svg, 'image/svg+xml')
-      const element = root.firstChild as SVGSVGElement
+      const root = parser.parseFromString(svg, 'text/html')
+      const [element] = root.getElementsByTagName('svg')
       const { height, width } = element.viewBox.baseVal
       const description = getAriaValue(element, 'aria-describedby')
       const title = getAriaValue(element, 'aria-labelledby')
 
-      const result: RenderResult = { height, id, svg, width }
+      const result: RenderResult = {
+        height,
+        id,
+        svg: serializer.serializeToString(element),
+        width
+      }
 
       if (description) {
         result.description = description
