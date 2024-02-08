@@ -5,14 +5,13 @@ import { after, before, describe, test } from 'node:test'
 import { pathToFileURL } from 'node:url'
 
 import { build } from 'esbuild'
+import { createMermaidRenderer, type RenderResult } from 'mermaid-isomorphic'
 import { type Browser, chromium, firefox } from 'playwright-core'
 import prettier from 'prettier'
 
-import { createMermaidRenderer, type RenderResult } from './index.js'
-
 const require = createRequire(import.meta.url)
 const irishGrover = pathToFileURL(require.resolve('@fontsource/irish-grover'))
-const fixturesPath = new URL('fixtures/', import.meta.url)
+const fixturesPath = new URL('../fixtures/', import.meta.url)
 const fixtureNames = (await readdir(fixturesPath)).sort()
 
 interface FixtureTest {
@@ -134,7 +133,7 @@ describe('browser', () => {
   before(async () => {
     const output = await build({
       bundle: true,
-      entryPoints: ['./browser.ts'],
+      entryPoints: [require.resolve('./browser.js')],
       format: 'cjs',
       write: false
     })

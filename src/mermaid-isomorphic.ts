@@ -13,7 +13,7 @@ import {
 declare const mermaid: Mermaid
 
 const require = createRequire(import.meta.url)
-const html = String(new URL('index.html', import.meta.url))
+const html = String(new URL('../index.html', import.meta.url))
 const mermaidScript = { path: require.resolve('mermaid/dist/mermaid.js') }
 const faStyle = {
   // We use url, not path. If we use path, the fonts can’t be resolved.

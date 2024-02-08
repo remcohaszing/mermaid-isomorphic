@@ -18,21 +18,23 @@
   "author": "Remco Haszing <remcohaszing@gmail.com>",
   "sideEffects": false,
   "type": "module",
+  "main": "./dist/mermaid-isomorphic.js",
   "exports": {
     ".": {
-      "browser": "./browser.js",
-      "default": "./index.js"
+      "browser": "./dist/browser.js",
+      "default": "./dist/mermaid-isomorphic.js"
     }
   },
   "files": [
-    "./browser.js",
-    "./index.html",
-    "./index.js",
-    "./index.d.ts"
+    "index.html",
+    "src",
+    "dist",
+    "!test*"
   ],
   "scripts": {
-    "prepack": "tsc --noEmit false",
-    "test": "c8 ts-node-esm test.ts"
+    "prepack": "tsc --build",
+    "pretest": "tsc --build",
+    "test": "c8 node --enable-source-maps dist/test.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.0.0",
@@ -49,7 +51,6 @@
     "prettier": "^3.0.0",
     "remark-cli": "^11.0.0",
     "remark-preset-remcohaszing": "^2.0.0",
-    "ts-node": "^10.0.0",
     "typescript": "^5.0.0"
   }
 }

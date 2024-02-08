@@ -4,7 +4,7 @@ import {
   type MermaidRenderer,
   type createMermaidRenderer as nodeImplementation,
   type RenderResult
-} from './index.js'
+} from './mermaid-isomorphic.js'
 
 const parser = new DOMParser()
 const serializer = new XMLSerializer()

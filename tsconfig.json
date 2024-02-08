@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
+    "composite": true,
     "declaration": true,
+    "declarationMap": true,
     "module": "node16",
-    "noEmit": true,
+    "outDir": "dist",
+    "rootDir": "src",
     "skipLibCheck": true,
+    "sourceMap": true,
     "strict": true,
     "target": "es2021",
     "useUnknownInCatchVariables": true
-  },
-  "ts-node": {
-    "transpileOnly": true
   }
 }
