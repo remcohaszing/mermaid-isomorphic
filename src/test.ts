@@ -124,6 +124,19 @@ describe('node', () => {
     assert.equal(result.reason.name, 'UnknownDiagramError')
     assert.match(result.reason.stack!, /\/node_modules\/mermaid\/dist\/mermaid\.js:\d+:\d+/)
   })
+
+  test('concurrent rendering', async () => {
+    const renderer = createMermaidRenderer({ browser: chromium })
+
+    const results = await Promise.all([
+      renderer(['graph TD;\nA-->B']),
+      renderer(['invalid']),
+      renderer(['graph TD;\nC-->D'])
+    ])
+    assert.strictEqual(results[0][0].status, 'fulfilled')
+    assert.strictEqual(results[1][0].status, 'rejected')
+    assert.strictEqual(results[2][0].status, 'fulfilled')
+  })
 })
 
 describe('browser', () => {

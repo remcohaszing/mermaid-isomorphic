@@ -270,8 +270,8 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
       await page?.close()
       count -= 1
       if (!count) {
-        await browserInstance.close()
         browserPromise = undefined
+        browserInstance.close()
       }
     }
 
