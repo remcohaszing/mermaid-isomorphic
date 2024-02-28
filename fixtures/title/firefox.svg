@@ -259,6 +259,8 @@
       <g class="nodes">
         <g
           transform="translate(13.724998474121094, 17)"
+          data-id="id"
+          data-node="true"
           id="flowchart-id-0"
           class="node default default flowchart-label"
         >

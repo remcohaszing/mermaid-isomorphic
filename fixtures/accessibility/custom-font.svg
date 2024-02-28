@@ -268,14 +268,14 @@
           style="fill: none"
           class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-B"
           id="L-A-B-0"
-          d="M172,91L176.16666666666666,91C180.33333333333334,91,188.66666666666666,91,196.20016975753654,91.06601640047457C203.73367284840643,91.13203280094915,210.4673456968129,91.26406560189828,213.83418212101614,91.33008200237288L217.20101854521937,91.39609840284744"
+          d="M172,91L176.167,91C180.333,91,188.667,91,196.2,91.066C203.734,91.132,210.467,91.264,213.834,91.33L217.201,91.396"
         />
         <path
           marker-end="url(#mermaid-0_flowchart-pointEnd)"
           style="fill: none"
           class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-D"
           id="L-B-D-0"
-          d="M404.5,91.5L408.5833333333333,91.41666666666667C412.6666666666667,91.33333333333333,420.8333333333333,91.16666666666667,428.2,91.08333333333333C435.56666666666666,91,442.1333333333334,91,445.4166666666667,91L448.7,91"
+          d="M404.5,91.5L408.583,91.417C412.667,91.333,420.833,91.167,428.2,91.083C435.567,91,442.133,91,445.417,91L448.7,91"
         />
       </g>
       <g class="edgeLabels">
@@ -305,6 +305,8 @@
       <g class="nodes">
         <g
           transform="translate(86, 91)"
+          data-id="A"
+          data-node="true"
           id="flowchart-A-0"
           class="node default default flowchart-label"
         >
@@ -332,6 +334,8 @@
         </g>
         <g
           transform="translate(313, 91)"
+          data-id="B"
+          data-node="true"
           id="flowchart-B-1"
           class="node default default flowchart-label"
         >
@@ -355,6 +359,8 @@
         </g>
         <g
           transform="translate(491.5, 91)"
+          data-id="D"
+          data-node="true"
           id="flowchart-D-3"
           class="node default default flowchart-label"
         >

@@ -260,7 +260,7 @@
           style="fill: none"
           class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-B"
           id="L-A-B-0"
-          d="M23.90625,34.5L28.072916666666668,34.5C32.239583333333336,34.5,40.572916666666664,34.5,48.02291666666667,34.5C55.47291666666666,34.5,62.03958333333333,34.5,65.32291666666667,34.5L68.60625,34.5"
+          d="M23.906,34.5L28.073,34.5C32.24,34.5,40.573,34.5,48.023,34.5C55.473,34.5,62.04,34.5,65.323,34.5L68.606,34.5"
         />
       </g>
       <g class="edgeLabels">
@@ -279,6 +279,8 @@
       <g class="nodes">
         <g
           transform="translate(11.953125, 34.5)"
+          data-id="A"
+          data-node="true"
           id="flowchart-A-0"
           class="node default default flowchart-label"
         >
@@ -310,6 +312,8 @@
         </g>
         <g
           transform="translate(85.859375, 34.5)"
+          data-id="B"
+          data-node="true"
           id="flowchart-B-1"
           class="node default default flowchart-label"
         >
