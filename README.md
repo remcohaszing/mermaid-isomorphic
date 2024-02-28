@@ -1,8 +1,9 @@
 # mermaid-isomorphic
 
 [![github actions](https://github.com/remcohaszing/mermaid-isomorphic/actions/workflows/ci.yaml/badge.svg)](https://github.com/remcohaszing/mermaid-isomorphic/actions/workflows/ci.yaml)
-[![npm](https://img.shields.io/npm/v/mermaid-isomorphic)](https://www.npmjs.com/package/mermaid-isomorphic)
 [![codecov](https://codecov.io/gh/remcohaszing/mermaid-isomorphic/branch/main/graph/badge.svg)](https://codecov.io/gh/remcohaszing/mermaid-isomorphic)
+[![npm version](https://img.shields.io/npm/v/mermaid-isomorphic)](https://www.npmjs.com/package/mermaid-isomorphic)
+[![npm downloads](https://img.shields.io/npm/dm/mermaid-isomorphic)](https://www.npmjs.com/package/mermaid-isomorphic)
 
 Render [Mermaid](https://mermaid.js.org) diagrams in the browser or Node.js.
 
