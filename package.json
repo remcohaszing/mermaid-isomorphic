@@ -20,10 +20,8 @@
   "type": "module",
   "main": "./dist/mermaid-isomorphic.js",
   "exports": {
-    ".": {
-      "browser": "./dist/browser.js",
-      "default": "./dist/mermaid-isomorphic.js"
-    }
+    "browser": "./dist/browser.js",
+    "default": "./dist/mermaid-isomorphic.js"
   },
   "files": [
     "index.html",
