@@ -82,6 +82,11 @@
     #prefix-0 .flowchart-label text {
       text-anchor: middle;
     }
+    #prefix-0 .node .katex path {
+      fill: #000;
+      stroke: #000;
+      stroke-width: 1px;
+    }
     #prefix-0 .node .label {
       text-align: center;
     }
@@ -337,9 +342,7 @@
                 style="display: inline-block; white-space: nowrap"
                 xmlns="http://www.w3.org/1999/xhtml"
               >
-                <span class="nodeLabel"
-                  ><i class="fab fa-twitter"></i> for peace</span
-                >
+                <span class="nodeLabel"><i class="fab fa-twitter"></i> for peace</span>
               </div></foreignObject
             >
           </g>
@@ -368,9 +371,7 @@
                 style="display: inline-block; white-space: nowrap"
                 xmlns="http://www.w3.org/1999/xhtml"
               >
-                <span class="nodeLabel"
-                  ><i class="fa fa-ban"></i> forbidden</span
-                >
+                <span class="nodeLabel"><i class="fa fa-ban"></i> forbidden</span>
               </div></foreignObject
             >
           </g>
@@ -399,9 +400,7 @@
                 style="display: inline-block; white-space: nowrap"
                 xmlns="http://www.w3.org/1999/xhtml"
               >
-                <span class="nodeLabel"
-                  ><i class="fa fa-spinner"></i
-                ></span></div
+                <span class="nodeLabel"><i class="fa fa-spinner"></i></span></div
             ></foreignObject>
           </g>
         </g>
@@ -429,9 +428,7 @@
                 style="display: inline-block; white-space: nowrap"
                 xmlns="http://www.w3.org/1999/xhtml"
               >
-                <span class="nodeLabel"
-                  >A <i class="fa fa-camera-retro"></i> perhaps?</span
-                >
+                <span class="nodeLabel">A <i class="fa fa-camera-retro"></i> perhaps?</span>
               </div></foreignObject
             >
           </g>

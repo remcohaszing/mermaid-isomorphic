@@ -82,6 +82,11 @@
     #mermaid-0 .flowchart-label text {
       text-anchor: middle;
     }
+    #mermaid-0 .node .katex path {
+      fill: #000;
+      stroke: #000;
+      stroke-width: 1px;
+    }
     #mermaid-0 .node .label {
       text-align: center;
     }
@@ -330,20 +335,14 @@
             style=""
             class="basic label-container"
           />
-          <g
-            transform="translate(-43.59166717529297, -9.5)"
-            style=""
-            class="label"
-          >
+          <g transform="translate(-43.59166717529297, -9.5)" style="" class="label">
             <rect />
             <foreignObject height="19" width="87.18333435058594"
               ><div
                 xmlns="http://www.w3.org/1999/xhtml"
                 style="display: inline-block; white-space: nowrap"
               >
-                <span class="nodeLabel"
-                  ><i class="fab fa-twitter"></i> for peace</span
-                >
+                <span class="nodeLabel"><i class="fab fa-twitter"></i> for peace</span>
               </div></foreignObject
             >
           </g>
@@ -365,20 +364,14 @@
             style=""
             class="basic label-container"
           />
-          <g
-            transform="translate(-43.59166717529297, -9.5)"
-            style=""
-            class="label"
-          >
+          <g transform="translate(-43.59166717529297, -9.5)" style="" class="label">
             <rect />
             <foreignObject height="19" width="87.18333435058594"
               ><div
                 xmlns="http://www.w3.org/1999/xhtml"
                 style="display: inline-block; white-space: nowrap"
               >
-                <span class="nodeLabel"
-                  ><i class="fa fa-ban"></i> forbidden</span
-                >
+                <span class="nodeLabel"><i class="fa fa-ban"></i> forbidden</span>
               </div></foreignObject
             >
           </g>
@@ -407,9 +400,7 @@
                 xmlns="http://www.w3.org/1999/xhtml"
                 style="display: inline-block; white-space: nowrap"
               >
-                <span class="nodeLabel"
-                  ><i class="fa fa-spinner"></i
-                ></span></div
+                <span class="nodeLabel"><i class="fa fa-spinner"></i></span></div
             ></foreignObject>
           </g>
         </g>
@@ -430,20 +421,14 @@
             style=""
             class="basic label-container"
           />
-          <g
-            transform="translate(-51.150001525878906, -9.5)"
-            style=""
-            class="label"
-          >
+          <g transform="translate(-51.150001525878906, -9.5)" style="" class="label">
             <rect />
             <foreignObject height="19" width="102.30000305175781"
               ><div
                 xmlns="http://www.w3.org/1999/xhtml"
                 style="display: inline-block; white-space: nowrap"
               >
-                <span class="nodeLabel"
-                  >A <i class="fa fa-camera-retro"></i> perhaps?</span
-                >
+                <span class="nodeLabel">A <i class="fa fa-camera-retro"></i> perhaps?</span>
               </div></foreignObject
             >
           </g>

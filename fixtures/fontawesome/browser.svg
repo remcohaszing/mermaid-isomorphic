@@ -1,22 +1,22 @@
 <!--
 {
-  "height": 92,
+  "height": 132,
   "id": "mermaid-0",
-  "width": 60
+  "width": 308.671875
 }
 -->
 <svg
   aria-roledescription="flowchart-v2"
   role="graphics-document document"
-  viewBox="-16.5 -50 60 92"
-  style="max-width: 60px"
+  viewBox="-8 -8 308.671875 132"
+  style="max-width: 308.671875px"
   xmlns="http://www.w3.org/2000/svg"
   width="100%"
   id="mermaid-0"
 >
   <style>
     #mermaid-0 {
-      font-family: 'Irish Grover';
+      font-family: arial, sans-serif;
       font-size: 16px;
       fill: #333;
     }
@@ -50,11 +50,11 @@
       stroke: #333333;
     }
     #mermaid-0 svg {
-      font-family: 'Irish Grover';
+      font-family: arial, sans-serif;
       font-size: 16px;
     }
     #mermaid-0 .label {
-      font-family: 'Irish Grover';
+      font-family: arial, sans-serif;
       color: #333;
     }
     #mermaid-0 .cluster-label text {
@@ -133,7 +133,7 @@
       text-align: center;
       max-width: 200px;
       padding: 2px;
-      font-family: 'Irish Grover';
+      font-family: arial, sans-serif;
       font-size: 12px;
       background: hsl(80, 100%, 96.2745098039%);
       border: 1px solid #aaaa33;
@@ -147,7 +147,7 @@
       fill: #333;
     }
     #mermaid-0 :root {
-      --mermaid-font-family: 'Irish Grover';
+      --mermaid-font-family: arial, sans-serif;
     }
   </style>
   <g>
@@ -259,34 +259,176 @@
     </marker>
     <g class="root">
       <g class="clusters" />
-      <g class="edgePaths" />
-      <g class="edgeLabels" />
+      <g class="edgePaths">
+        <path
+          marker-end="url(#mermaid-0_flowchart-pointEnd)"
+          style="fill: none"
+          class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-C"
+          id="L-B-C-0"
+          d="M100.112,33L90.237,37.167C80.361,41.333,60.61,49.667,50.735,57.117C40.859,64.567,40.859,71.133,40.859,74.417L40.859,77.7"
+        />
+        <path
+          marker-end="url(#mermaid-0_flowchart-pointEnd)"
+          style="fill: none"
+          class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-D"
+          id="L-B-D-0"
+          d="M139.219,33L139.219,37.167C139.219,41.333,139.219,49.667,139.219,58.617C139.219,67.567,139.219,77.133,139.219,81.917L139.219,86.7"
+        />
+        <path
+          marker-end="url(#mermaid-0_flowchart-pointEnd)"
+          style="fill: none"
+          class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-E"
+          id="L-B-E-0"
+          d="M180.078,32.576L190.848,36.814C201.617,41.051,223.156,49.525,233.926,57.046C244.695,64.567,244.695,71.133,244.695,74.417L244.695,77.7"
+        />
+      </g>
+      <g class="edgeLabels">
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0"
+              ><div
+                style="display: inline-block; white-space: nowrap"
+                xmlns="http://www.w3.org/1999/xhtml"
+              >
+                <span class="edgeLabel"></span></div
+            ></foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0"
+              ><div
+                style="display: inline-block; white-space: nowrap"
+                xmlns="http://www.w3.org/1999/xhtml"
+              >
+                <span class="edgeLabel"></span></div
+            ></foreignObject>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <foreignObject height="0" width="0"
+              ><div
+                style="display: inline-block; white-space: nowrap"
+                xmlns="http://www.w3.org/1999/xhtml"
+              >
+                <span class="edgeLabel"></span></div
+            ></foreignObject>
+          </g>
+        </g>
+      </g>
       <g class="nodes">
         <g
-          transform="translate(14, 17)"
-          data-id="id"
+          transform="translate(139.21875, 16.5)"
+          data-id="B"
           data-node="true"
-          id="flowchart-id-0"
+          id="flowchart-B-0"
           class="node default default flowchart-label"
         >
           <rect
-            height="34"
-            width="28"
-            y="-17"
-            x="-14"
+            height="33"
+            width="81.71875"
+            y="-16.5"
+            x="-40.859375"
             ry="0"
             rx="0"
             style=""
             class="basic label-container"
           />
-          <g transform="translate(-6.5, -9.5)" style="" class="label">
+          <g transform="translate(-33.359375, -9)" style="" class="label">
             <rect />
-            <foreignObject height="19" width="13"
+            <foreignObject height="18" width="66.71875"
               ><div
                 style="display: inline-block; white-space: nowrap"
                 xmlns="http://www.w3.org/1999/xhtml"
               >
-                <span class="nodeLabel">id</span>
+                <span class="nodeLabel"><i class="fab fa-twitter"></i> for peace</span>
+              </div></foreignObject
+            >
+          </g>
+        </g>
+        <g
+          transform="translate(40.859375, 99.5)"
+          data-id="C"
+          data-node="true"
+          id="flowchart-C-2"
+          class="node default default flowchart-label"
+        >
+          <rect
+            height="33"
+            width="81.71875"
+            y="-16.5"
+            x="-40.859375"
+            ry="0"
+            rx="0"
+            style=""
+            class="basic label-container"
+          />
+          <g transform="translate(-33.359375, -9)" style="" class="label">
+            <rect />
+            <foreignObject height="18" width="66.71875"
+              ><div
+                style="display: inline-block; white-space: nowrap"
+                xmlns="http://www.w3.org/1999/xhtml"
+              >
+                <span class="nodeLabel"><i class="fa fa-ban"></i> forbidden</span>
+              </div></foreignObject
+            >
+          </g>
+        </g>
+        <g
+          transform="translate(139.21875, 99.5)"
+          data-id="D"
+          data-node="true"
+          id="flowchart-D-4"
+          class="node default default flowchart-label"
+        >
+          <rect
+            height="15"
+            width="15"
+            y="-7.5"
+            x="-7.5"
+            ry="5"
+            rx="5"
+            style=""
+            class="basic label-container"
+          />
+          <g transform="translate(0, 0)" style="" class="label">
+            <rect />
+            <foreignObject height="0" width="0"
+              ><div
+                style="display: inline-block; white-space: nowrap"
+                xmlns="http://www.w3.org/1999/xhtml"
+              >
+                <span class="nodeLabel"><i class="fa fa-spinner"></i></span></div
+            ></foreignObject>
+          </g>
+        </g>
+        <g
+          transform="translate(244.6953125, 99.5)"
+          data-id="E"
+          data-node="true"
+          id="flowchart-E-6"
+          class="node default default flowchart-label"
+        >
+          <rect
+            height="33"
+            width="95.953125"
+            y="-16.5"
+            x="-47.9765625"
+            ry="5"
+            rx="5"
+            style=""
+            class="basic label-container"
+          />
+          <g transform="translate(-40.4765625, -9)" style="" class="label">
+            <rect />
+            <foreignObject height="18" width="80.953125"
+              ><div
+                style="display: inline-block; white-space: nowrap"
+                xmlns="http://www.w3.org/1999/xhtml"
+              >
+                <span class="nodeLabel">A <i class="fa fa-camera-retro"></i> perhaps?</span>
               </div></foreignObject
             >
           </g>
@@ -294,5 +436,4 @@
       </g>
     </g>
   </g>
-  <text class="flowchartTitleText" y="-25" x="14">Node</text>
 </svg>

@@ -19,9 +19,7 @@
   id="mermaid-0"
 >
   <title id="chart-title-mermaid-0">Big Decisions</title>
-  <desc id="chart-desc-mermaid-0">
-    Bob's Burgers process for making big decisions
-  </desc>
+  <desc id="chart-desc-mermaid-0">Bob's Burgers process for making big decisions</desc>
   <style>
     #mermaid-0 {
       font-family: arial, sans-serif;
@@ -89,6 +87,11 @@
     }
     #mermaid-0 .flowchart-label text {
       text-anchor: middle;
+    }
+    #mermaid-0 .node .katex path {
+      fill: #000;
+      stroke: #000;
+      stroke-width: 1px;
     }
     #mermaid-0 .node .label {
       text-align: center;
@@ -320,11 +323,7 @@
             style=""
             class="basic label-container"
           />
-          <g
-            transform="translate(-76.48332977294922, -9.5)"
-            style=""
-            class="label"
-          >
+          <g transform="translate(-76.48332977294922, -9.5)" style="" class="label">
             <rect />
             <foreignObject height="19" width="152.96665954589844"
               ><div
@@ -378,11 +377,7 @@
             style=""
             class="basic label-container"
           />
-          <g
-            transform="translate(-29.808334350585938, -9.5)"
-            style=""
-            class="label"
-          >
+          <g transform="translate(-29.808334350585938, -9.5)" style="" class="label">
             <rect />
             <foreignObject height="19" width="59.616668701171875"
               ><div

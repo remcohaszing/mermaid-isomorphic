@@ -19,9 +19,7 @@
   id="prefix-0"
 >
   <title id="chart-title-prefix-0">Big Decisions</title>
-  <desc id="chart-desc-prefix-0">
-    Bob's Burgers process for making big decisions
-  </desc>
+  <desc id="chart-desc-prefix-0">Bob's Burgers process for making big decisions</desc>
   <style>
     #prefix-0 {
       font-family: arial, sans-serif;
@@ -89,6 +87,11 @@
     }
     #prefix-0 .flowchart-label text {
       text-anchor: middle;
+    }
+    #prefix-0 .node .katex path {
+      fill: #000;
+      stroke: #000;
+      stroke-width: 1px;
     }
     #prefix-0 .node .label {
       text-align: center;

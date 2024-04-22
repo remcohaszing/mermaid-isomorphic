@@ -1,22 +1,22 @@
 <!--
 {
-  "height": 92,
+  "height": 49,
   "id": "mermaid-0",
-  "width": 60
+  "width": 43.453125
 }
 -->
 <svg
   aria-roledescription="flowchart-v2"
   role="graphics-document document"
-  viewBox="-16.5 -50 60 92"
-  style="max-width: 60px"
+  viewBox="-8 -8 43.453125 49"
+  style="max-width: 43.453125px"
   xmlns="http://www.w3.org/2000/svg"
   width="100%"
   id="mermaid-0"
 >
   <style>
     #mermaid-0 {
-      font-family: 'Irish Grover';
+      font-family: arial, sans-serif;
       font-size: 16px;
       fill: #333;
     }
@@ -50,11 +50,11 @@
       stroke: #333333;
     }
     #mermaid-0 svg {
-      font-family: 'Irish Grover';
+      font-family: arial, sans-serif;
       font-size: 16px;
     }
     #mermaid-0 .label {
-      font-family: 'Irish Grover';
+      font-family: arial, sans-serif;
       color: #333;
     }
     #mermaid-0 .cluster-label text {
@@ -133,7 +133,7 @@
       text-align: center;
       max-width: 200px;
       padding: 2px;
-      font-family: 'Irish Grover';
+      font-family: arial, sans-serif;
       font-size: 12px;
       background: hsl(80, 100%, 96.2745098039%);
       border: 1px solid #aaaa33;
@@ -147,7 +147,7 @@
       fill: #333;
     }
     #mermaid-0 :root {
-      --mermaid-font-family: 'Irish Grover';
+      --mermaid-font-family: arial, sans-serif;
     }
   </style>
   <g>
@@ -263,25 +263,25 @@
       <g class="edgeLabels" />
       <g class="nodes">
         <g
-          transform="translate(14, 17)"
+          transform="translate(13.7265625, 16.5)"
           data-id="id"
           data-node="true"
           id="flowchart-id-0"
           class="node default default flowchart-label"
         >
           <rect
-            height="34"
-            width="28"
-            y="-17"
-            x="-14"
+            height="33"
+            width="27.453125"
+            y="-16.5"
+            x="-13.7265625"
             ry="0"
             rx="0"
             style=""
             class="basic label-container"
           />
-          <g transform="translate(-6.5, -9.5)" style="" class="label">
+          <g transform="translate(-6.2265625, -9)" style="" class="label">
             <rect />
-            <foreignObject height="19" width="13"
+            <foreignObject height="18" width="12.453125"
               ><div
                 style="display: inline-block; white-space: nowrap"
                 xmlns="http://www.w3.org/1999/xhtml"
@@ -294,5 +294,4 @@
       </g>
     </g>
   </g>
-  <text class="flowchartTitleText" y="-25" x="14">Node</text>
 </svg>

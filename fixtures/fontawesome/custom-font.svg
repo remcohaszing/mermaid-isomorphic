@@ -16,7 +16,7 @@
 >
   <style>
     #mermaid-0 {
-      font-family: "Irish Grover";
+      font-family: 'Irish Grover';
       font-size: 16px;
       fill: #333;
     }
@@ -50,11 +50,11 @@
       stroke: #333333;
     }
     #mermaid-0 svg {
-      font-family: "Irish Grover";
+      font-family: 'Irish Grover';
       font-size: 16px;
     }
     #mermaid-0 .label {
-      font-family: "Irish Grover";
+      font-family: 'Irish Grover';
       color: #333;
     }
     #mermaid-0 .cluster-label text {
@@ -81,6 +81,11 @@
     }
     #mermaid-0 .flowchart-label text {
       text-anchor: middle;
+    }
+    #mermaid-0 .node .katex path {
+      fill: #000;
+      stroke: #000;
+      stroke-width: 1px;
     }
     #mermaid-0 .node .label {
       text-align: center;
@@ -128,7 +133,7 @@
       text-align: center;
       max-width: 200px;
       padding: 2px;
-      font-family: "Irish Grover";
+      font-family: 'Irish Grover';
       font-size: 12px;
       background: hsl(80, 100%, 96.2745098039%);
       border: 1px solid #aaaa33;
@@ -142,7 +147,7 @@
       fill: #333;
     }
     #mermaid-0 :root {
-      --mermaid-font-family: "Irish Grover";
+      --mermaid-font-family: 'Irish Grover';
     }
   </style>
   <g>
@@ -337,9 +342,7 @@
                 style="display: inline-block; white-space: nowrap"
                 xmlns="http://www.w3.org/1999/xhtml"
               >
-                <span class="nodeLabel"
-                  ><i class="fab fa-twitter"></i> for peace</span
-                >
+                <span class="nodeLabel"><i class="fab fa-twitter"></i> for peace</span>
               </div></foreignObject
             >
           </g>
@@ -368,9 +371,7 @@
                 style="display: inline-block; white-space: nowrap"
                 xmlns="http://www.w3.org/1999/xhtml"
               >
-                <span class="nodeLabel"
-                  ><i class="fa fa-ban"></i> forbidden</span
-                >
+                <span class="nodeLabel"><i class="fa fa-ban"></i> forbidden</span>
               </div></foreignObject
             >
           </g>
@@ -399,9 +400,7 @@
                 style="display: inline-block; white-space: nowrap"
                 xmlns="http://www.w3.org/1999/xhtml"
               >
-                <span class="nodeLabel"
-                  ><i class="fa fa-spinner"></i
-                ></span></div
+                <span class="nodeLabel"><i class="fa fa-spinner"></i></span></div
             ></foreignObject>
           </g>
         </g>
@@ -429,9 +428,7 @@
                 style="display: inline-block; white-space: nowrap"
                 xmlns="http://www.w3.org/1999/xhtml"
               >
-                <span class="nodeLabel"
-                  >A <i class="fa fa-camera-retro"></i> perhaps?</span
-                >
+                <span class="nodeLabel">A <i class="fa fa-camera-retro"></i> perhaps?</span>
               </div></foreignObject
             >
           </g>

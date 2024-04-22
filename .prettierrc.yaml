@@ -2,3 +2,7 @@ proseWrap: always
 semi: false
 singleQuote: true
 trailingComma: none
+overrides:
+  - files: '**/*.svg'
+    options:
+      parser: html

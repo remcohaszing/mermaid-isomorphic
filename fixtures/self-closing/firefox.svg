@@ -82,6 +82,11 @@
     #mermaid-0 .flowchart-label text {
       text-anchor: middle;
     }
+    #mermaid-0 .node .katex path {
+      fill: #000;
+      stroke: #000;
+      stroke-width: 1px;
+    }
     #mermaid-0 .node .label {
       text-align: center;
     }
@@ -294,11 +299,7 @@
             style=""
             class="basic label-container"
           />
-          <g
-            transform="translate(-4.4499969482421875, -28)"
-            style=""
-            class="label"
-          >
+          <g transform="translate(-4.4499969482421875, -28)" style="" class="label">
             <rect />
             <foreignObject height="56" width="8.899993896484375"
               ><div
@@ -331,11 +332,7 @@
             style=""
             class="basic label-container"
           />
-          <g
-            transform="translate(-4.4499969482421875, -28)"
-            style=""
-            class="label"
-          >
+          <g transform="translate(-4.4499969482421875, -28)" style="" class="label">
             <rect />
             <foreignObject height="56" width="8.899993896484375"
               ><div
