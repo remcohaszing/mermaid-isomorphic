@@ -32,7 +32,8 @@ async function testFixtureResults(
 before(async () => {
   const output = await build({
     bundle: true,
-    entryPoints: [require.resolve('./browser.js')],
+    conditions: ['browser'],
+    entryPoints: ['mermaid-isomorphic'],
     format: 'cjs',
     write: false
   })
