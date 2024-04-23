@@ -120,7 +120,7 @@ test('handle errors', async () => {
 
   assert.equal(results.length, 1)
   const [result] = results
-  assert.strictEqual(result.status, 'rejected' as const)
+  assert.strictEqual(result.status, 'rejected')
   assert(result.reason instanceof Error)
   assert.equal(result.reason.name, 'UnknownDiagramError')
   assert.match(result.reason.stack!, /\/node_modules\/mermaid\/dist\/mermaid\.js:\d+:\d+/)
