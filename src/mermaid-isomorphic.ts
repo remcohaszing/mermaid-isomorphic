@@ -243,9 +243,12 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
       page = await browserInstance.newPage({ bypassCSP: true })
       await page.goto(html)
       const promises = [page.addStyleTag(faStyle), page.addScriptTag(mermaidScript)]
-      if (renderOptions?.css) {
-        for (const url of [renderOptions.css].flatMap(String)) {
-          promises.push(page.addStyleTag({ url }))
+      const css = renderOptions?.css
+      if (typeof css === 'string' || css instanceof URL) {
+        promises.push(page.addStyleTag({ url: String(css) }))
+      } else if (css) {
+        for (const url of css) {
+          promises.push(page.addStyleTag({ url: String(url) }))
         }
       }
       await Promise.all(promises)

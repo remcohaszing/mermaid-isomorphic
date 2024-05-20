@@ -89,7 +89,7 @@ testFixturesDirectory({
     async 'custom-font-iterable.svg'(file) {
       const renderer = createMermaidRenderer()
       const results = await renderer([String(file)], {
-        css: [irishGrover],
+        css: [irishGrover, irishGrover],
         mermaidConfig: { fontFamily: '"Irish Grover"' }
       })
 
