@@ -65,7 +65,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-      - run: npx playwright-core install --with-deps
+      - run: npx playwright install --with-deps
       - run: npm test update
       - uses: actions/upload-artifact@v3
         with:

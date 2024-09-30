@@ -2,13 +2,7 @@ import { createRequire } from 'node:module'
 import { pathToFileURL } from 'node:url'
 
 import { type Mermaid, type MermaidConfig } from 'mermaid'
-import {
-  type Browser,
-  type BrowserType,
-  chromium,
-  type LaunchOptions,
-  type Page
-} from 'playwright-core'
+import { type Browser, type BrowserType, chromium, type LaunchOptions, type Page } from 'playwright'
 
 declare const mermaid: Mermaid
 

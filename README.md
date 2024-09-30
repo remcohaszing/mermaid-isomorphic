@@ -29,11 +29,12 @@ you want to render Mermaid diagrams in the browser directly, use the
 npm install mermaid-isomorphic
 ```
 
-This library uses [Playwright](https://playwright.dev/) under the hood in Node.js. You may need to
-install the Playwright browser before using this package.
+Outside of browsers `mermaid-isomorphic` uses [Playwright](https://playwright.dev). If you use this
+outside of a browser, you need to install Playwright and a Playwright browser.
 
 ```sh
-npx playwright-core install --with-deps chromium
+npm install playwright
+npx playwright install --with-deps chromium
 ```
 
 ## Usage

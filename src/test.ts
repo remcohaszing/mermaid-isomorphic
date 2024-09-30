@@ -7,7 +7,7 @@ import { pathToFileURL } from 'node:url'
 
 import { build } from 'esbuild'
 import { createMermaidRenderer, type RenderResult } from 'mermaid-isomorphic'
-import { type Browser, chromium, firefox } from 'playwright-core'
+import { type Browser, chromium, firefox } from 'playwright'
 import { testFixturesDirectory } from 'snapshot-fixtures'
 
 const require = createRequire(import.meta.url)
