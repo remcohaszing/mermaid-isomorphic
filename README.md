@@ -123,7 +123,7 @@ properties:
 
 ## Compatibility
 
-This project is compatible with Node.js 16 or greater.
+This project is compatible with Node.js 18 or greater.
 
 ## Contributing
 
