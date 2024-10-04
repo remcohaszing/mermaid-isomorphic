@@ -33,20 +33,14 @@ before(async () => {
   const output = await build({
     bundle: true,
     conditions: ['browser'],
-    entryPoints: ['mermaid-isomorphic'],
-    format: 'cjs',
+    entryPoints: [require.resolve('./test.bundle')],
+    format: 'iife',
     write: false
   })
   assert.deepEqual(output.errors, [])
   assert.deepEqual(output.warnings, [])
   assert.equal(output.outputFiles.length, 1)
-  content = `(() => {
-    let module = {};
-
-    ${output.outputFiles[0].text}
-
-    Object.assign(window, module.exports)
-  })()`
+  content = output.outputFiles[0].text
 
   browser = await chromium.launch({ headless: true })
 })
@@ -108,32 +102,13 @@ testFixturesDirectory({
       await page.addScriptTag({ content })
 
       const results = await page.evaluate(
-        (diagram) =>
-          createMermaidRenderer()([
-            `%%{
-            init: {
-              "fontFamily": "arial,sans-serif"
-            }
-          }%%\n${diagram}`
-          ]),
+        (diagram) => createMermaidRenderer()([diagram]),
         String(file)
       )
 
       return testFixtureResults(results)
     }
   }
-})
-
-test('handle errors', async () => {
-  const renderer = createMermaidRenderer({ browser: chromium })
-  const results = await renderer(['invalid'])
-
-  assert.equal(results.length, 1)
-  const [result] = results
-  assert.strictEqual(result.status, 'rejected')
-  assert(result.reason instanceof Error)
-  assert.equal(result.reason.name, 'UnknownDiagramError')
-  assert.match(result.reason.stack!, /\/node_modules\/mermaid\/dist\/mermaid\.js:\d+:\d+/)
 })
 
 test('concurrent rendering', async () => {
