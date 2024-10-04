@@ -52,6 +52,7 @@ after(async () => {
 testFixturesDirectory({
   directory: new URL('../fixtures', import.meta.url),
   prettier: true,
+  write: true,
   tests: {
     async 'expected.svg'(file) {
       const renderer = createMermaidRenderer()
