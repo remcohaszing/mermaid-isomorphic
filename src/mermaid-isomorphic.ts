@@ -102,10 +102,13 @@ export interface RenderOptions {
 /**
  * Render Mermaid diagrams in the browser.
  *
- * @param diagrams The Mermaid diagrams to render.
- * @param options Additional options to use when rendering the diagrams.
- * @returns A list of settled promises that contains the rendered Mermaid diagram. Each result
- *   matches the same index of the input diagrams.
+ * @param diagrams
+ *   The Mermaid diagrams to render.
+ * @param options
+ *   Additional options to use when rendering the diagrams.
+ * @returns
+ *   A list of settled promises that contains the rendered Mermaid diagram. Each result matches the
+ *   same index of the input diagrams.
  */
 export type MermaidRenderer = (
   diagrams: string[],
@@ -124,8 +127,10 @@ interface RenderDiagramsOptions
 /**
  * Render mermaid diagrams in the browser.
  *
- * @param options The options used to render the diagrams
- * @returns A settled promise that holds the rendering results.
+ * @param options
+ *   The options used to render the diagrams
+ * @returns
+ *   A settled promise that holds the rendering results.
  */
 async function renderDiagrams({
   diagrams,
@@ -142,9 +147,12 @@ async function renderDiagrams({
   /**
    * Get an aria value form a referencing attribute.
    *
-   * @param element The SVG element the get the value from.
-   * @param attribute The attribute whose value to get.
-   * @returns The aria value.
+   * @param element
+   *   The SVG element the get the value from.
+   * @param attribute
+   *   The attribute whose value to get.
+   * @returns
+   *   The aria value.
    */
   // eslint-disable-next-line unicorn/consistent-function-scoping
   function getAriaValue(element: SVGSVGElement, attribute: string): string | undefined {
@@ -213,8 +221,10 @@ async function renderDiagrams({
  * simultaneously, the internal browser instance will be re-used. If no diagrams are being rendered,
  * the browser will be closed.
  *
- * @param options The options of the Mermaid renderer.
- * @returns A function that renders Mermaid diagrams in the browser.
+ * @param options
+ *   The options of the Mermaid renderer.
+ * @returns
+ *   A function that renders Mermaid diagrams in the browser.
  */
 export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}): MermaidRenderer {
   const { browser = chromium, launchOptions } = options

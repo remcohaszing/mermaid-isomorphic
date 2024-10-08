@@ -12,9 +12,12 @@ const serializer = new XMLSerializer()
 /**
  * Get an aria value form a referencing attribute.
  *
- * @param element The SVG element the get the value from.
- * @param attribute The attribute whose value to get.
- * @returns The aria value.
+ * @param element
+ *   The SVG element the get the value from.
+ * @param attribute
+ *   The attribute whose value to get.
+ * @returns
+ *   The aria value.
  */
 function getAriaValue(element: SVGSVGElement, attribute: string): string | undefined {
   const value = element.getAttribute(attribute)
