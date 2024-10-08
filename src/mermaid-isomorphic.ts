@@ -18,7 +18,7 @@ export interface CreateMermaidRendererOptions {
    *
    * @default chromium
    */
-  browser?: BrowserType
+  browserType?: BrowserType
 
   /**
    * The options used to launch the browser.
@@ -225,7 +225,7 @@ async function renderDiagrams({
  *   A function that renders Mermaid diagrams in the browser.
  */
 export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}): MermaidRenderer {
-  const { browser = chromium, launchOptions } = options
+  const { browserType = chromium, launchOptions } = options
 
   let browserPromise: Promise<Browser> | undefined
   let count = 0
@@ -233,16 +233,16 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
   return async (diagrams, renderOptions) => {
     count += 1
     if (!browserPromise) {
-      browserPromise = browser?.launch(launchOptions)
+      browserPromise = browserType?.launch(launchOptions)
     }
 
-    const browserInstance = await browserPromise
+    const browser = await browserPromise
 
     let page: Page | undefined
     let renderResults: PromiseSettledResult<RenderResult>[]
 
     try {
-      page = await browserInstance.newPage({ bypassCSP: true })
+      page = await browser.newPage({ bypassCSP: true })
       await page.goto(html)
       const promises = [page.addStyleTag(faStyle), page.addScriptTag(mermaidScript)]
       const css = renderOptions?.css
@@ -278,7 +278,7 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
       count -= 1
       if (!count) {
         browserPromise = undefined
-        browserInstance.close()
+        browser.close()
       }
     }
 

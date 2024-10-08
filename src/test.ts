@@ -90,14 +90,14 @@ testFixturesDirectory({
     },
 
     async 'firefox.svg'(file) {
-      const renderer = createMermaidRenderer({ browser: firefox })
+      const renderer = createMermaidRenderer({ browserType: firefox })
       const results = await renderer([String(file)])
 
       return testFixtureResults(results)
     },
 
     async 'webkit.svg'(file) {
-      const renderer = createMermaidRenderer({ browser: webkit })
+      const renderer = createMermaidRenderer({ browserType: webkit })
       const results = await renderer([String(file)])
 
       return testFixtureResults(results)
@@ -118,7 +118,7 @@ testFixturesDirectory({
 })
 
 test('concurrent rendering', async () => {
-  const renderer = createMermaidRenderer({ browser: chromium })
+  const renderer = createMermaidRenderer({ browserType: chromium })
 
   const results = await Promise.all([
     renderer(['graph TD;\nA-->B']),
