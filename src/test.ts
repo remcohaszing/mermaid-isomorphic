@@ -118,7 +118,7 @@ testFixturesDirectory({
 })
 
 test('concurrent rendering', async () => {
-  const renderer = createMermaidRenderer({ browserType: chromium })
+  const renderer = createMermaidRenderer()
 
   const results = await Promise.all([
     renderer(['graph TD;\nA-->B']),
