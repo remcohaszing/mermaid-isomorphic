@@ -1,17 +1,15 @@
 import assert from 'node:assert/strict'
 import { writeFile } from 'node:fs/promises'
-import { createRequire } from 'node:module'
 import { join } from 'node:path'
 import { after, before, test } from 'node:test'
-import { pathToFileURL } from 'node:url'
+import { fileURLToPath } from 'node:url'
 
 import { build } from 'esbuild'
 import { createMermaidRenderer, type RenderResult } from 'mermaid-isomorphic'
 import { type Browser, chromium, firefox } from 'playwright'
 import { testFixturesDirectory } from 'snapshot-fixtures'
 
-const require = createRequire(import.meta.url)
-const irishGrover = pathToFileURL(require.resolve('@fontsource/irish-grover'))
+const irishGrover = import.meta.resolve('@fontsource/irish-grover')
 let browser: Browser
 let content: string
 
@@ -33,7 +31,7 @@ before(async () => {
   const output = await build({
     bundle: true,
     conditions: ['browser'],
-    entryPoints: [require.resolve('./test.bundle')],
+    entryPoints: [fileURLToPath(import.meta.resolve('./test.bundle.js'))],
     format: 'iife',
     write: false
   })

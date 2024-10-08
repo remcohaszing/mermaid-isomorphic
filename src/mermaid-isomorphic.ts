@@ -1,17 +1,15 @@
-import { createRequire } from 'node:module'
-import { pathToFileURL } from 'node:url'
-
 import { type Mermaid, type MermaidConfig } from 'mermaid'
 import { type Browser, type BrowserType, chromium, type LaunchOptions, type Page } from 'playwright'
 
 declare const mermaid: Mermaid
 
-const require = createRequire(import.meta.url)
-const html = String(new URL('../index.html', import.meta.url))
-const mermaidScript = { path: require.resolve('mermaid/dist/mermaid.js') }
+const html = import.meta.resolve('../index.html')
+const mermaidScript = {
+  url: import.meta.resolve('mermaid/dist/mermaid.js')
+}
 const faStyle = {
   // We use url, not path. If we use path, the fonts can’t be resolved.
-  url: String(pathToFileURL(require.resolve('@fortawesome/fontawesome-free/css/all.css')))
+  url: import.meta.resolve('@fortawesome/fontawesome-free/css/all.css')
 }
 
 export interface CreateMermaidRendererOptions {
