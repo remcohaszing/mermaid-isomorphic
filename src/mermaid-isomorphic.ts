@@ -1,5 +1,5 @@
 import { type Mermaid, type MermaidConfig } from 'mermaid'
-import { type Browser, type BrowserType, chromium, type LaunchOptions, type Page } from 'playwright'
+import { type BrowserType, chromium, type LaunchOptions, type Page } from 'playwright'
 
 declare const mermaid: Mermaid
 
@@ -212,6 +212,47 @@ async function renderDiagrams({
 
 /* c8 ignore stop */
 
+interface SimpleContext {
+  /**
+   * Gracefully close the browser context and the browser.
+   */
+  close: () => Promise<undefined>
+
+  /**
+   * Open a new page.
+   */
+  newPage: () => Promise<Page>
+}
+
+/**
+ * Launch a browser and a single browser context.
+ *
+ * @param browserType
+ *   The browser type to launch.
+ * @param launchOptions
+ *   Optional launch options
+ * @returns
+ *   A simple browser context wrapper
+ */
+async function getBrowser(
+  browserType: BrowserType,
+  launchOptions: LaunchOptions | undefined
+): Promise<SimpleContext> {
+  const browser = await browserType.launch(launchOptions)
+  const context = await browser.newContext({ bypassCSP: true })
+
+  return {
+    async close() {
+      await context.close()
+      await browser.close()
+    },
+
+    newPage() {
+      return context.newPage()
+    }
+  }
+}
+
 /**
  * Create a Mermaid renderer.
  *
@@ -227,22 +268,22 @@ async function renderDiagrams({
 export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}): MermaidRenderer {
   const { browserType = chromium, launchOptions } = options
 
-  let browserPromise: Promise<Browser> | undefined
+  let browserPromise: Promise<SimpleContext> | undefined
   let count = 0
 
   return async (diagrams, renderOptions) => {
     count += 1
     if (!browserPromise) {
-      browserPromise = browserType?.launch(launchOptions)
+      browserPromise = getBrowser(browserType, launchOptions)
     }
 
-    const browser = await browserPromise
+    const context = await browserPromise
 
     let page: Page | undefined
     let renderResults: PromiseSettledResult<RenderResult>[]
 
     try {
-      page = await browser.newPage({ bypassCSP: true })
+      page = await context.newPage()
       await page.goto(html)
       const promises = [page.addStyleTag(faStyle), page.addScriptTag(mermaidScript)]
       const css = renderOptions?.css
@@ -278,7 +319,7 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
       count -= 1
       if (!count) {
         browserPromise = undefined
-        browser.close()
+        context.close()
       }
     }
 
