@@ -90,7 +90,7 @@ the browser will be closed.
 
 #### Options
 
-- `browser` (`BrowserType`): The Playwright browser to use. (default: chromium)
+- `browserType` (`BrowserType`): The Playwright browser to use. (default: chromium)
 - `launchOptions`: (`LaunchOptions`): The options used to launch the browser.
 
 #### Returns
