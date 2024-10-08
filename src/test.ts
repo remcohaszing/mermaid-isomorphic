@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 
 import { build } from 'esbuild'
 import { createMermaidRenderer, type RenderResult } from 'mermaid-isomorphic'
-import { type Browser, chromium, firefox } from 'playwright'
+import { type Browser, chromium, firefox, webkit } from 'playwright'
 import { testFixturesDirectory } from 'snapshot-fixtures'
 
 const irishGrover = import.meta.resolve('@fontsource/irish-grover')
@@ -91,6 +91,13 @@ testFixturesDirectory({
 
     async 'firefox.svg'(file) {
       const renderer = createMermaidRenderer({ browser: firefox })
+      const results = await renderer([String(file)])
+
+      return testFixtureResults(results)
+    },
+
+    async 'webkit.svg'(file) {
+      const renderer = createMermaidRenderer({ browser: webkit })
       const results = await renderer([String(file)])
 
       return testFixtureResults(results)
