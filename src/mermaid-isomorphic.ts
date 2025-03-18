@@ -3,13 +3,16 @@ import { type BrowserType, chromium, type LaunchOptions, type Page } from 'playw
 
 declare const mermaid: Mermaid
 
-const html = import.meta.resolve('../index.html')
+const resolve: (path: string) => string = 
+  import.meta.resolve || ((path) => new URL(path, import.meta.url).href);
+
+const html = resolve('../index.html')
 const mermaidScript = {
-  url: import.meta.resolve('mermaid/dist/mermaid.js')
+  url: resolve('mermaid/dist/mermaid.js')
 }
 const faStyle = {
   // We use url, not path. If we use path, the fonts can’t be resolved.
-  url: import.meta.resolve('@fortawesome/fontawesome-free/css/all.css')
+  url: resolve('@fortawesome/fontawesome-free/css/all.css')
 }
 
 export interface CreateMermaidRendererOptions {
