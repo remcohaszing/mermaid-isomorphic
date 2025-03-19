@@ -22,6 +22,28 @@
       font-size: 16px;
       fill: #333;
     }
+    @keyframes edge-animation-frame {
+      from {
+        stroke-dashoffset: 0;
+      }
+    }
+    @keyframes dash {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    #mermaid-0 .edge-animation-slow {
+      stroke-dasharray: 9, 5 !important;
+      stroke-dashoffset: 900;
+      animation: dash 50s linear infinite;
+      stroke-linecap: round;
+    }
+    #mermaid-0 .edge-animation-fast {
+      stroke-dasharray: 9, 5 !important;
+      stroke-dashoffset: 900;
+      animation: dash 20s linear infinite;
+      stroke-linecap: round;
+    }
     #mermaid-0 .error-icon {
       fill: #552222;
     }
@@ -308,7 +330,7 @@
           style=""
           class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
           id="L_A_B_0"
-          d="M76.9,56L81.067,56C85.233,56,93.567,56,99.817,56C106.067,56,110.233,56,113.733,56C117.233,56,120.067,56,121.483,56L122.9,56"
+          d="M76.9,56L81.067,56C85.233,56,93.567,56,101.233,56C108.9,56,115.9,56,119.4,56L122.9,56"
         />
       </g>
       <g class="edgeLabels">

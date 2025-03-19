@@ -1,15 +1,15 @@
 <!--
 {
-  "height": 119.296875,
+  "height": 119,
   "id": "mermaid-0",
-  "width": 89
+  "width": 88.453125
 }
 -->
 <svg
   aria-roledescription="flowchart-v2"
   role="graphics-document document"
-  viewBox="0 -49.296875 89 119.296875"
-  style="max-width: 89px"
+  viewBox="0 -49 88.453125 119"
+  style="max-width: 88.453125px"
   class="flowchart"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns="http://www.w3.org/2000/svg"
@@ -21,6 +21,28 @@
       font-family: arial, sans-serif;
       font-size: 16px;
       fill: #333;
+    }
+    @keyframes edge-animation-frame {
+      from {
+        stroke-dashoffset: 0;
+      }
+    }
+    @keyframes dash {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    #mermaid-0 .edge-animation-slow {
+      stroke-dasharray: 9, 5 !important;
+      stroke-dashoffset: 900;
+      animation: dash 50s linear infinite;
+      stroke-linecap: round;
+    }
+    #mermaid-0 .edge-animation-fast {
+      stroke-dasharray: 9, 5 !important;
+      stroke-dashoffset: 900;
+      animation: dash 20s linear infinite;
+      stroke-linecap: round;
     }
     #mermaid-0 .error-icon {
       fill: #552222;
@@ -305,11 +327,18 @@
       <g class="edgePaths" />
       <g class="edgeLabels" />
       <g class="nodes">
-        <g transform="translate(44.5, 35)" id="flowchart-id-0" class="node default">
-          <rect height="54" width="73" y="-27" x="-36.5" style="" class="basic label-container" />
-          <g transform="translate(-6.5, -12)" style="" class="label">
+        <g transform="translate(44.2265625, 35)" id="flowchart-id-0" class="node default">
+          <rect
+            height="54"
+            width="72.453125"
+            y="-27"
+            x="-36.2265625"
+            style=""
+            class="basic label-container"
+          />
+          <g transform="translate(-6.2265625, -12)" style="" class="label">
             <rect />
-            <foreignObject height="24" width="13"
+            <foreignObject height="24" width="12.453125"
               ><div
                 style="
                   display: table-cell;
@@ -328,5 +357,5 @@
       </g>
     </g>
   </g>
-  <text class="flowchartTitleText" y="-25" x="44.5">Node</text>
+  <text class="flowchartTitleText" y="-25" x="44.2265625" text-anchor="middle">Node</text>
 </svg>

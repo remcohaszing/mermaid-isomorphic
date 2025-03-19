@@ -22,6 +22,28 @@
       font-size: 16px;
       fill: #333;
     }
+    @keyframes edge-animation-frame {
+      from {
+        stroke-dashoffset: 0;
+      }
+    }
+    @keyframes dash {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    #mermaid-0 .edge-animation-slow {
+      stroke-dasharray: 9, 5 !important;
+      stroke-dashoffset: 900;
+      animation: dash 50s linear infinite;
+      stroke-linecap: round;
+    }
+    #mermaid-0 .edge-animation-fast {
+      stroke-dasharray: 9, 5 !important;
+      stroke-dashoffset: 900;
+      animation: dash 20s linear infinite;
+      stroke-linecap: round;
+    }
     #mermaid-0 .error-icon {
       fill: #552222;
     }
@@ -308,21 +330,21 @@
           style=""
           class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
           id="L_B_C_0"
-          d="M154.594,61.101L142.426,65.418C130.258,69.734,105.922,78.367,93.754,84.767C81.586,91.167,81.586,95.333,81.586,98.833C81.586,102.333,81.586,105.167,81.586,106.583L81.586,108"
+          d="M154.594,61.101L142.426,65.418C130.258,69.734,105.922,78.367,93.754,86.184C81.586,94,81.586,101,81.586,104.5L81.586,108"
         />
         <path
           marker-end="url(#mermaid-0_flowchart-v2-pointEnd)"
           style=""
           class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
-          id="L_B_D_1"
-          d="M228.172,62L228.172,66.167C228.172,70.333,228.172,78.667,228.172,84.917C228.172,91.167,228.172,95.333,228.172,98.833C228.172,102.333,228.172,105.167,228.172,106.583L228.172,108"
+          id="L_B_D_0"
+          d="M228.172,62L228.172,66.167C228.172,70.333,228.172,78.667,228.172,86.333C228.172,94,228.172,101,228.172,104.5L228.172,108"
         />
         <path
           marker-end="url(#mermaid-0_flowchart-v2-pointEnd)"
           style=""
           class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
-          id="L_B_E_2"
-          d="M300.191,62L311.305,66.167C322.419,70.333,344.647,78.667,355.761,84.917C366.875,91.167,366.875,95.333,366.875,98.833C366.875,102.333,366.875,105.167,366.875,106.583L366.875,108"
+          id="L_B_E_0"
+          d="M300.191,62L311.305,66.167C322.419,70.333,344.647,78.667,355.761,86.333C366.875,94,366.875,101,366.875,104.5L366.875,108"
         />
       </g>
       <g class="edgeLabels">

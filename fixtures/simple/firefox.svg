@@ -22,6 +22,28 @@
       font-size: 16px;
       fill: #333;
     }
+    @keyframes edge-animation-frame {
+      from {
+        stroke-dashoffset: 0;
+      }
+    }
+    @keyframes dash {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    #mermaid-0 .edge-animation-slow {
+      stroke-dasharray: 9, 5 !important;
+      stroke-dashoffset: 900;
+      animation: dash 50s linear infinite;
+      stroke-linecap: round;
+    }
+    #mermaid-0 .edge-animation-fast {
+      stroke-dasharray: 9, 5 !important;
+      stroke-dashoffset: 900;
+      animation: dash 20s linear infinite;
+      stroke-linecap: round;
+    }
     #mermaid-0 .error-icon {
       fill: #552222;
     }
@@ -308,28 +330,28 @@
           style=""
           class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
           id="L_A_B_0"
-          d="M72.446,62L67.594,66.167C62.742,70.333,53.038,78.667,48.185,84.917C43.333,91.167,43.333,95.333,43.333,98.833C43.333,102.333,43.333,105.167,43.333,106.583L43.333,108"
+          d="M72.446,62L67.594,66.167C62.742,70.333,53.038,78.667,48.185,86.333C43.333,94,43.333,101,43.333,104.5L43.333,108"
         />
         <path
           marker-end="url(#mermaid-0_flowchart-v2-pointEnd)"
           style=""
           class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
-          id="L_A_C_1"
-          d="M135.329,62L140.181,66.167C145.033,70.333,154.737,78.667,159.59,84.917C164.442,91.167,164.442,95.333,164.442,98.833C164.442,102.333,164.442,105.167,164.442,106.583L164.442,108"
+          id="L_A_C_0"
+          d="M135.329,62L140.181,66.167C145.033,70.333,154.737,78.667,159.59,86.333C164.442,94,164.442,101,164.442,104.5L164.442,108"
         />
         <path
           marker-end="url(#mermaid-0_flowchart-v2-pointEnd)"
           style=""
           class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
-          id="L_B_D_2"
-          d="M43.333,166L43.333,170.167C43.333,174.333,43.333,182.667,45.759,188.917C48.185,195.167,53.038,199.333,57.384,203.066C61.73,206.798,65.571,210.096,67.491,211.745L69.411,213.394"
+          id="L_B_D_0"
+          d="M43.333,166L43.333,170.167C43.333,174.333,43.333,182.667,47.68,190.566C52.026,198.465,60.719,205.929,65.065,209.662L69.411,213.394"
         />
         <path
           marker-end="url(#mermaid-0_flowchart-v2-pointEnd)"
           style=""
           class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
-          id="L_C_D_3"
-          d="M164.442,166L164.442,170.167C164.442,174.333,164.442,182.667,162.016,188.917C159.59,195.167,154.737,199.333,150.391,203.066C146.045,206.798,142.204,210.096,140.284,211.745L138.364,213.394"
+          id="L_C_D_0"
+          d="M164.442,166L164.442,170.167C164.442,174.333,164.442,182.667,160.095,190.566C155.749,198.465,147.056,205.929,142.71,209.662L138.364,213.394"
         />
       </g>
       <g class="edgeLabels">

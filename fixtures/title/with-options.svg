@@ -22,6 +22,28 @@
       font-size: 16px;
       fill: #ccc;
     }
+    @keyframes edge-animation-frame {
+      from {
+        stroke-dashoffset: 0;
+      }
+    }
+    @keyframes dash {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    #prefix-0 .edge-animation-slow {
+      stroke-dasharray: 9, 5 !important;
+      stroke-dashoffset: 900;
+      animation: dash 50s linear infinite;
+      stroke-linecap: round;
+    }
+    #prefix-0 .edge-animation-fast {
+      stroke-dasharray: 9, 5 !important;
+      stroke-dashoffset: 900;
+      animation: dash 20s linear infinite;
+      stroke-linecap: round;
+    }
     #prefix-0 .error-icon {
       fill: #a44141;
     }
@@ -335,5 +357,5 @@
       </g>
     </g>
   </g>
-  <text class="flowchartTitleText" y="-25" x="44.2265625">Node</text>
+  <text class="flowchartTitleText" y="-25" x="44.2265625" text-anchor="middle">Node</text>
 </svg>
