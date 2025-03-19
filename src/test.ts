@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { after, before, test } from 'node:test'
+import { after, before, describe, test } from 'node:test'
 import { fileURLToPath } from 'node:url'
 
 import { build } from 'esbuild'
@@ -117,15 +117,30 @@ testFixturesDirectory({
   }
 })
 
-test('concurrent rendering', async () => {
-  const renderer = createMermaidRenderer()
+describe('nodejs', () => {
+  test('concurrent rendering', async () => {
+    const renderer = createMermaidRenderer()
 
-  const results = await Promise.all([
-    renderer(['graph TD;\nA-->B']),
-    renderer(['invalid']),
-    renderer(['graph TD;\nC-->D'])
-  ])
-  assert.strictEqual(results[0][0].status, 'fulfilled')
-  assert.strictEqual(results[1][0].status, 'rejected')
-  assert.strictEqual(results[2][0].status, 'fulfilled')
+    const results = await Promise.all([
+      renderer(['graph TD;\nA-->B']),
+      renderer(['invalid']),
+      renderer(['graph TD;\nC-->D'])
+    ])
+    assert.strictEqual(results[0][0].status, 'fulfilled')
+    assert.strictEqual(results[1][0].status, 'rejected')
+    assert.strictEqual(results[2][0].status, 'fulfilled')
+  })
+})
+
+describe('browser', () => {
+  test('error handling', async () => {
+    const page = await browser.newPage()
+    await page.addScriptTag({ content })
+
+    const results = await page.evaluate(() => createMermaidRenderer()(['invalid']))
+
+    assert.strictEqual(results[0].status, 'rejected')
+    const body = await page.innerHTML('body')
+    assert.equal(body, '')
+  })
 })

@@ -11,6 +11,7 @@
   viewBox="0 0 450 174"
   style="max-width: 450px"
   class="flowchart"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns="http://www.w3.org/2000/svg"
   width="100%"
   id="mermaid-0"

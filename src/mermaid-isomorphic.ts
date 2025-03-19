@@ -139,7 +139,9 @@ async function renderDiagrams({
   await Promise.all(Array.from(document.fonts, (font) => font.load()))
   const parser = new DOMParser()
   const serializer = new XMLSerializer()
+  const container = document.createElement('div')
 
+  document.body.append(container)
   mermaid.initialize(mermaidConfig)
 
   /**
@@ -174,7 +176,7 @@ async function renderDiagrams({
       const id = `${prefix}-${index}`
 
       try {
-        const { svg } = await mermaid.render(id, diagram)
+        const { svg } = await mermaid.render(id, diagram, container)
         const root = parser.parseFromString(svg, 'text/html')
         const [element] = root.getElementsByTagName('svg')
         const { height, width } = element.viewBox.baseVal

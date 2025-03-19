@@ -35,12 +35,19 @@ function getAriaValue(element: SVGSVGElement, attribute: string): string | undef
   return result
 }
 
-const renderer: MermaidRenderer = (diagrams, options) =>
-  Promise.allSettled(
+const renderer: MermaidRenderer = async (diagrams, options) => {
+  const container = document.createElement('div')
+  container.ariaHidden = 'true'
+  container.style.maxHeight = '0'
+  container.style.maxWidth = '0'
+  container.style.opacity = '0'
+  document.body.append(container)
+
+  const results = await Promise.allSettled(
     diagrams.map(async (diagram, index) => {
       const id = `${options?.prefix ?? 'mermaid'}-${index}`
 
-      const { svg } = await mermaid.render(id, diagram)
+      const { svg } = await mermaid.render(id, diagram, container)
       const root = parser.parseFromString(svg, 'text/html')
       const [element] = root.getElementsByTagName('svg')
       const { height, width } = element.viewBox.baseVal
@@ -65,5 +72,9 @@ const renderer: MermaidRenderer = (diagrams, options) =>
       return result
     })
   )
+
+  container.remove()
+  return results
+}
 
 export const createMermaidRenderer: typeof nodeImplementation = () => renderer
