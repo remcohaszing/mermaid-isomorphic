@@ -35,6 +35,8 @@ function getAriaValue(element: SVGSVGElement, attribute: string): string | undef
   return result
 }
 
+let count = 0
+
 const renderer: MermaidRenderer = async (diagrams, options) => {
   const container = document.createElement('div')
   container.ariaHidden = 'true'
@@ -44,8 +46,9 @@ const renderer: MermaidRenderer = async (diagrams, options) => {
   document.body.append(container)
 
   const results = await Promise.allSettled(
-    diagrams.map(async (diagram, index) => {
-      const id = `${options?.prefix ?? 'mermaid'}-${index}`
+    diagrams.map(async (diagram) => {
+      const id = `${options?.prefix ?? 'mermaid'}-${count}`
+      count += 1
 
       const { svg } = await mermaid.render(id, diagram, container)
       const root = parser.parseFromString(svg, 'text/html')
