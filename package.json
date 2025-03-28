@@ -1,6 +1,6 @@
 {
   "name": "mermaid-isomorphic",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Transform mermaid diagrams in the browser or Node.js",
   "keywords": [
     "browser",
