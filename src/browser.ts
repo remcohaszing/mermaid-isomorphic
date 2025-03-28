@@ -41,8 +41,11 @@ const renderer: MermaidRenderer = async (diagrams, options) => {
   const container = document.createElement('div')
   container.ariaHidden = 'true'
   container.style.maxHeight = '0'
-  container.style.maxWidth = '0'
   container.style.opacity = '0'
+  container.style.overflow = 'hidden'
+  if (options?.containerStyle) {
+    Object.assign(container.style, options.containerStyle)
+  }
   document.body.append(container)
 
   const results = await Promise.allSettled(

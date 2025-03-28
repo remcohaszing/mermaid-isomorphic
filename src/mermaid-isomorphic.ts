@@ -65,6 +65,16 @@ export interface RenderResult {
 
 export interface RenderOptions {
   /**
+   * A style to apply to the container used to render the diagram.
+   *
+   * Certain styling is known to override the rendering behaviour. For example, the `maxWidth`
+   * property affects gantt diagrams.
+   *
+   * @default { maxHeight: '0', opacity: '0', overflow: 'hidden' }
+   */
+  containerStyle?: Partial<CSSStyleDeclaration>
+
+  /**
    * A URL that points to a custom CSS file to load.
    *
    * Use this to load custom fonts.
@@ -114,7 +124,9 @@ export type MermaidRenderer = (
 ) => Promise<PromiseSettledResult<RenderResult>[]>
 
 interface RenderDiagramsOptions
-  extends Required<Pick<RenderOptions, 'mermaidConfig' | 'prefix' | 'screenshot'>> {
+  extends Required<
+    Pick<RenderOptions, 'containerStyle' | 'mermaidConfig' | 'prefix' | 'screenshot'>
+  > {
   /**
    * The diagrams to process.
    */
@@ -131,6 +143,7 @@ interface RenderDiagramsOptions
  *   A settled promise that holds the rendering results.
  */
 async function renderDiagrams({
+  containerStyle,
   diagrams,
   mermaidConfig,
   prefix,
@@ -140,6 +153,11 @@ async function renderDiagrams({
   const parser = new DOMParser()
   const serializer = new XMLSerializer()
   const container = document.createElement('div')
+  container.ariaHidden = 'true'
+  container.style.maxHeight = '0'
+  container.style.opacity = '0'
+  container.style.overflow = 'hidden'
+  Object.assign(container.style, containerStyle)
 
   document.body.append(container)
   mermaid.initialize(mermaidConfig)
@@ -299,6 +317,8 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
       await Promise.all(promises)
 
       renderResults = await page.evaluate(renderDiagrams, {
+        // Avoid error TS2589: Type instantiation is excessively deep and possibly infinite.
+        containerStyle: (renderOptions?.containerStyle ?? {}) as object,
         diagrams,
         screenshot: Boolean(renderOptions?.screenshot),
         mermaidConfig: {

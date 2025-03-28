@@ -1,0 +1,427 @@
+<!--
+{
+  "height": 196,
+  "id": "prefix-0",
+  "width": 512
+}
+-->
+<svg
+  aria-roledescription="gantt"
+  role="graphics-document document"
+  style="max-width: 512px"
+  viewBox="0 0 512 196"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns="http://www.w3.org/2000/svg"
+  width="100%"
+  id="prefix-0"
+>
+  <style>
+    #prefix-0 {
+      font-family: arial, sans-serif;
+      font-size: 16px;
+      fill: #ccc;
+    }
+    @keyframes edge-animation-frame {
+      from {
+        stroke-dashoffset: 0;
+      }
+    }
+    @keyframes dash {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    #prefix-0 .edge-animation-slow {
+      stroke-dasharray: 9, 5 !important;
+      stroke-dashoffset: 900;
+      animation: dash 50s linear infinite;
+      stroke-linecap: round;
+    }
+    #prefix-0 .edge-animation-fast {
+      stroke-dasharray: 9, 5 !important;
+      stroke-dashoffset: 900;
+      animation: dash 20s linear infinite;
+      stroke-linecap: round;
+    }
+    #prefix-0 .error-icon {
+      fill: #a44141;
+    }
+    #prefix-0 .error-text {
+      fill: #ddd;
+      stroke: #ddd;
+    }
+    #prefix-0 .edge-thickness-normal {
+      stroke-width: 1px;
+    }
+    #prefix-0 .edge-thickness-thick {
+      stroke-width: 3.5px;
+    }
+    #prefix-0 .edge-pattern-solid {
+      stroke-dasharray: 0;
+    }
+    #prefix-0 .edge-thickness-invisible {
+      stroke-width: 0;
+      fill: none;
+    }
+    #prefix-0 .edge-pattern-dashed {
+      stroke-dasharray: 3;
+    }
+    #prefix-0 .edge-pattern-dotted {
+      stroke-dasharray: 2;
+    }
+    #prefix-0 .marker {
+      fill: lightgrey;
+      stroke: lightgrey;
+    }
+    #prefix-0 .marker.cross {
+      stroke: lightgrey;
+    }
+    #prefix-0 svg {
+      font-family: arial, sans-serif;
+      font-size: 16px;
+    }
+    #prefix-0 p {
+      margin: 0;
+    }
+    #prefix-0 .mermaid-main-font {
+      font-family: arial, sans-serif;
+    }
+    #prefix-0 .exclude-range {
+      fill: hsl(52.9411764706, 28.813559322%, 48.431372549%);
+    }
+    #prefix-0 .section {
+      stroke: none;
+      opacity: 0.2;
+    }
+    #prefix-0 .section0 {
+      fill: hsl(52.9411764706, 28.813559322%, 58.431372549%);
+    }
+    #prefix-0 .section2 {
+      fill: #eae8d9;
+    }
+    #prefix-0 .section1,
+    #prefix-0 .section3 {
+      fill: #333;
+      opacity: 0.2;
+    }
+    #prefix-0 .sectionTitle0 {
+      fill: #f9fffe;
+    }
+    #prefix-0 .sectionTitle1 {
+      fill: #f9fffe;
+    }
+    #prefix-0 .sectionTitle2 {
+      fill: #f9fffe;
+    }
+    #prefix-0 .sectionTitle3 {
+      fill: #f9fffe;
+    }
+    #prefix-0 .sectionTitle {
+      text-anchor: start;
+      font-family: arial, sans-serif;
+    }
+    #prefix-0 .grid .tick {
+      stroke: lightgrey;
+      opacity: 0.8;
+      shape-rendering: crispEdges;
+    }
+    #prefix-0 .grid .tick text {
+      font-family: arial, sans-serif;
+      fill: #ccc;
+    }
+    #prefix-0 .grid path {
+      stroke-width: 0;
+    }
+    #prefix-0 .today {
+      fill: none;
+      stroke: #db5757;
+      stroke-width: 2px;
+    }
+    #prefix-0 .task {
+      stroke-width: 2;
+    }
+    #prefix-0 .taskText {
+      text-anchor: middle;
+      font-family: arial, sans-serif;
+    }
+    #prefix-0 .taskTextOutsideRight {
+      fill: hsl(28.5714285714, 17.3553719008%, 86.2745098039%);
+      text-anchor: start;
+      font-family: arial, sans-serif;
+    }
+    #prefix-0 .taskTextOutsideLeft {
+      fill: hsl(28.5714285714, 17.3553719008%, 86.2745098039%);
+      text-anchor: end;
+    }
+    #prefix-0 .task.clickable {
+      cursor: pointer;
+    }
+    #prefix-0 .taskText.clickable {
+      cursor: pointer;
+      fill: #003163 !important;
+      font-weight: bold;
+    }
+    #prefix-0 .taskTextOutsideLeft.clickable {
+      cursor: pointer;
+      fill: #003163 !important;
+      font-weight: bold;
+    }
+    #prefix-0 .taskTextOutsideRight.clickable {
+      cursor: pointer;
+      fill: #003163 !important;
+      font-weight: bold;
+    }
+    #prefix-0 .taskText0,
+    #prefix-0 .taskText1,
+    #prefix-0 .taskText2,
+    #prefix-0 .taskText3 {
+      fill: hsl(28.5714285714, 17.3553719008%, 86.2745098039%);
+    }
+    #prefix-0 .task0,
+    #prefix-0 .task1,
+    #prefix-0 .task2,
+    #prefix-0 .task3 {
+      fill: hsl(180, 1.5873015873%, 35.3529411765%);
+      stroke: #ffffff;
+    }
+    #prefix-0 .taskTextOutside0,
+    #prefix-0 .taskTextOutside2 {
+      fill: lightgrey;
+    }
+    #prefix-0 .taskTextOutside1,
+    #prefix-0 .taskTextOutside3 {
+      fill: lightgrey;
+    }
+    #prefix-0 .active0,
+    #prefix-0 .active1,
+    #prefix-0 .active2,
+    #prefix-0 .active3 {
+      fill: #81b1db;
+      stroke: #ffffff;
+    }
+    #prefix-0 .activeText0,
+    #prefix-0 .activeText1,
+    #prefix-0 .activeText2,
+    #prefix-0 .activeText3 {
+      fill: hsl(28.5714285714, 17.3553719008%, 86.2745098039%) !important;
+    }
+    #prefix-0 .done0,
+    #prefix-0 .done1,
+    #prefix-0 .done2,
+    #prefix-0 .done3 {
+      stroke: grey;
+      fill: lightgrey;
+      stroke-width: 2;
+    }
+    #prefix-0 .doneText0,
+    #prefix-0 .doneText1,
+    #prefix-0 .doneText2,
+    #prefix-0 .doneText3 {
+      fill: hsl(28.5714285714, 17.3553719008%, 86.2745098039%) !important;
+    }
+    #prefix-0 .crit0,
+    #prefix-0 .crit1,
+    #prefix-0 .crit2,
+    #prefix-0 .crit3 {
+      stroke: #e83737;
+      fill: #e83737;
+      stroke-width: 2;
+    }
+    #prefix-0 .activeCrit0,
+    #prefix-0 .activeCrit1,
+    #prefix-0 .activeCrit2,
+    #prefix-0 .activeCrit3 {
+      stroke: #e83737;
+      fill: #81b1db;
+      stroke-width: 2;
+    }
+    #prefix-0 .doneCrit0,
+    #prefix-0 .doneCrit1,
+    #prefix-0 .doneCrit2,
+    #prefix-0 .doneCrit3 {
+      stroke: #e83737;
+      fill: lightgrey;
+      stroke-width: 2;
+      cursor: pointer;
+      shape-rendering: crispEdges;
+    }
+    #prefix-0 .milestone {
+      transform: rotate(45deg) scale(0.8, 0.8);
+    }
+    #prefix-0 .milestoneText {
+      font-style: italic;
+    }
+    #prefix-0 .doneCritText0,
+    #prefix-0 .doneCritText1,
+    #prefix-0 .doneCritText2,
+    #prefix-0 .doneCritText3 {
+      fill: hsl(28.5714285714, 17.3553719008%, 86.2745098039%) !important;
+    }
+    #prefix-0 .activeCritText0,
+    #prefix-0 .activeCritText1,
+    #prefix-0 .activeCritText2,
+    #prefix-0 .activeCritText3 {
+      fill: hsl(28.5714285714, 17.3553719008%, 86.2745098039%) !important;
+    }
+    #prefix-0 .titleText {
+      text-anchor: middle;
+      font-size: 18px;
+      fill: #f9fffe;
+      font-family: arial, sans-serif;
+    }
+    #prefix-0 :root {
+      --mermaid-font-family: arial, sans-serif;
+    }
+  </style>
+  <g />
+  <g
+    text-anchor="middle"
+    font-family="sans-serif"
+    font-size="10"
+    fill="none"
+    transform="translate(75, 146)"
+    class="grid"
+  >
+    <path d="M0.5,-111V0.5H362.5V-111" stroke="currentColor" class="domain" />
+    <g transform="translate(29.5,0)" opacity="1" class="tick">
+      <line y2="-111" stroke="currentColor" />
+      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
+        2014-01-05
+      </text>
+    </g>
+    <g transform="translate(80.5,0)" opacity="1" class="tick">
+      <line y2="-111" stroke="currentColor" />
+      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
+        2014-01-12
+      </text>
+    </g>
+    <g transform="translate(130.5,0)" opacity="1" class="tick">
+      <line y2="-111" stroke="currentColor" />
+      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
+        2014-01-19
+      </text>
+    </g>
+    <g transform="translate(181.5,0)" opacity="1" class="tick">
+      <line y2="-111" stroke="currentColor" />
+      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
+        2014-01-26
+      </text>
+    </g>
+    <g transform="translate(232.5,0)" opacity="1" class="tick">
+      <line y2="-111" stroke="currentColor" />
+      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
+        2014-02-02
+      </text>
+    </g>
+    <g transform="translate(282.5,0)" opacity="1" class="tick">
+      <line y2="-111" stroke="currentColor" />
+      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
+        2014-02-09
+      </text>
+    </g>
+    <g transform="translate(333.5,0)" opacity="1" class="tick">
+      <line y2="-111" stroke="currentColor" />
+      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
+        2014-02-16
+      </text>
+    </g>
+  </g>
+  <g>
+    <rect class="section section0" height="24" width="474.5" y="48" x="0" />
+    <rect class="section section1" height="24" width="474.5" y="96" x="0" />
+    <rect class="section section1" height="24" width="474.5" y="120" x="0" />
+    <rect class="section section0" height="24" width="474.5" y="72" x="0" />
+  </g>
+  <g>
+    <rect
+      class="task task0"
+      transform-origin="183.5px 60px"
+      height="20"
+      width="217"
+      y="50"
+      x="75"
+      ry="3"
+      rx="3"
+      id="a1"
+    />
+    <rect
+      class="task task1"
+      transform-origin="198.5px 108px"
+      height="20"
+      width="87"
+      y="98"
+      x="155"
+      ry="3"
+      rx="3"
+      id="task2"
+    />
+    <rect
+      class="task task1"
+      transform-origin="328.5px 132px"
+      height="20"
+      width="173"
+      y="122"
+      x="242"
+      ry="3"
+      rx="3"
+      id="task3"
+    />
+    <rect
+      class="task task0"
+      transform-origin="364.5px 84px"
+      height="20"
+      width="145"
+      y="74"
+      x="292"
+      ry="3"
+      rx="3"
+      id="task1"
+    />
+    <text
+      class="taskText taskText0 width-31.4599609375"
+      y="63.5"
+      x="183.5"
+      font-size="11"
+      id="a1-text"
+    >
+      A task
+    </text>
+    <text
+      class="taskText taskText1 width-75.54833984375"
+      y="111.5"
+      x="198.5"
+      font-size="11"
+      id="task2-text"
+    >
+      Task in Another
+    </text>
+    <text
+      class="taskText taskText1 width-61.03759765625"
+      y="135.5"
+      x="328.5"
+      font-size="11"
+      id="task3-text"
+    >
+      another task
+    </text>
+    <text
+      class="taskText taskText0 width-63.2568359375"
+      y="87.5"
+      x="364.5"
+      font-size="11"
+      id="task1-text"
+    >
+      Another task
+    </text>
+  </g>
+  <g>
+    <text class="sectionTitle sectionTitle0" font-size="11" y="74" x="10" dy="0em">
+      <tspan x="10" alignment-baseline="central">Section</tspan>
+    </text>
+    <text class="sectionTitle sectionTitle1" font-size="11" y="122" x="10" dy="0em">
+      <tspan x="10" alignment-baseline="central">Another</tspan>
+    </text>
+  </g>
+  <g class="today"><line class="today" y2="171" y1="25" x2="29793" x1="29793" /></g>
+  <text class="titleText" y="25" x="256">A Gantt Diagram</text>
+</svg>

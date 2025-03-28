@@ -62,6 +62,7 @@ testFixturesDirectory({
     async 'with-options.svg'(file) {
       const renderer = createMermaidRenderer()
       const results = await renderer([String(file)], {
+        containerStyle: { maxWidth: '512px' },
         mermaidConfig: { theme: 'dark' },
         prefix: 'prefix'
       })

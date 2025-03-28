@@ -99,6 +99,10 @@ A function that renders Mermaid diagrams in the browser. This function has argum
 
 - `diagrams` (`string[]`): An array of mermaid diagrams to render.
 - `options`:
+  - `containerStyle` (`Partial<CSSStyleDeclaration>`): A style to apply to the container used to
+    render the diagram. Certain styling is known to override the rendering behaviour. For example,
+    the `maxWidth` property affects gantt diagrams. (default:
+    `{ maxHeight: '0', opacity: '0', overflow: 'hidden' }`)
   - `css` (`string` | `URL`) A URL that points to a custom CSS file to load. Use this to load custom
     fonts. This option is ignored in the browser. You need to include the CSS in your build
     manually.
