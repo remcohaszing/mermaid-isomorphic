@@ -398,6 +398,6 @@
       <tspan x="10" alignment-baseline="central">Another</tspan>
     </text>
   </g>
-  <g class="today"><line class="today" y2="171" y1="25" x2="91544" x1="91544" /></g>
+  <g class="today"><line class="today" y2="171" y1="25" x2="91546" x1="91546" /></g>
   <text class="titleText" y="25" x="632">A Gantt Diagram</text>
 </svg>
