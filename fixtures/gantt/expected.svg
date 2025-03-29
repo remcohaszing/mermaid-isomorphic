@@ -1,6 +1,6 @@
 <!--
 {
-  "height": 196,
+  "height": 124,
   "id": "mermaid-0",
   "width": 1264
 }
@@ -9,7 +9,7 @@
   aria-roledescription="gantt"
   role="graphics-document document"
   style="max-width: 1264px"
-  viewBox="0 0 1264 196"
+  viewBox="0 0 1264 124"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns="http://www.w3.org/2000/svg"
   width="100%"
@@ -279,149 +279,87 @@
     font-family="sans-serif"
     font-size="10"
     fill="none"
-    transform="translate(75, 146)"
+    transform="translate(75, 74)"
     class="grid"
   >
-    <path d="M0.5,-111V0.5H1114.5V-111" stroke="currentColor" class="domain" />
-    <g transform="translate(89.5,0)" opacity="1" class="tick">
-      <line y2="-111" stroke="currentColor" />
+    <path d="M0.5,-39V0.5H1114.5V-39" stroke="currentColor" class="domain" />
+    <g transform="translate(128.5,0)" opacity="1" class="tick">
+      <line y2="-39" stroke="currentColor" />
+      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
+        2014-01-01
+      </text>
+    </g>
+    <g transform="translate(267.5,0)" opacity="1" class="tick">
+      <line y2="-39" stroke="currentColor" />
+      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
+        2014-01-02
+      </text>
+    </g>
+    <g transform="translate(406.5,0)" opacity="1" class="tick">
+      <line y2="-39" stroke="currentColor" />
+      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
+        2014-01-02
+      </text>
+    </g>
+    <g transform="translate(545.5,0)" opacity="1" class="tick">
+      <line y2="-39" stroke="currentColor" />
+      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
+        2014-01-03
+      </text>
+    </g>
+    <g transform="translate(685.5,0)" opacity="1" class="tick">
+      <line y2="-39" stroke="currentColor" />
+      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
+        2014-01-03
+      </text>
+    </g>
+    <g transform="translate(824.5,0)" opacity="1" class="tick">
+      <line y2="-39" stroke="currentColor" />
+      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
+        2014-01-04
+      </text>
+    </g>
+    <g transform="translate(963.5,0)" opacity="1" class="tick">
+      <line y2="-39" stroke="currentColor" />
+      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
+        2014-01-04
+      </text>
+    </g>
+    <g transform="translate(1102.5,0)" opacity="1" class="tick">
+      <line y2="-39" stroke="currentColor" />
       <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
         2014-01-05
       </text>
     </g>
-    <g transform="translate(245.5,0)" opacity="1" class="tick">
-      <line y2="-111" stroke="currentColor" />
-      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
-        2014-01-12
-      </text>
-    </g>
-    <g transform="translate(401.5,0)" opacity="1" class="tick">
-      <line y2="-111" stroke="currentColor" />
-      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
-        2014-01-19
-      </text>
-    </g>
-    <g transform="translate(557.5,0)" opacity="1" class="tick">
-      <line y2="-111" stroke="currentColor" />
-      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
-        2014-01-26
-      </text>
-    </g>
-    <g transform="translate(713.5,0)" opacity="1" class="tick">
-      <line y2="-111" stroke="currentColor" />
-      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
-        2014-02-02
-      </text>
-    </g>
-    <g transform="translate(869.5,0)" opacity="1" class="tick">
-      <line y2="-111" stroke="currentColor" />
-      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
-        2014-02-09
-      </text>
-    </g>
-    <g transform="translate(1025.5,0)" opacity="1" class="tick">
-      <line y2="-111" stroke="currentColor" />
-      <text style="text-anchor: middle" font-size="10" stroke="none" dy="1em" y="3" fill="#000">
-        2014-02-16
-      </text>
-    </g>
   </g>
-  <g>
-    <rect class="section section0" height="24" width="1226.5" y="48" x="0" />
-    <rect class="section section1" height="24" width="1226.5" y="96" x="0" />
-    <rect class="section section1" height="24" width="1226.5" y="120" x="0" />
-    <rect class="section section0" height="24" width="1226.5" y="72" x="0" />
-  </g>
+  <g><rect class="section section0" height="24" width="1226.5" y="48" x="0" /></g>
   <g>
     <rect
       class="task task0"
-      transform-origin="409px 60px"
+      transform-origin="632px 60px"
       height="20"
-      width="668"
+      width="1114"
       y="50"
       x="75"
       ry="3"
       rx="3"
-      id="a1"
-    />
-    <rect
-      class="task task1"
-      transform-origin="453.5px 108px"
-      height="20"
-      width="267"
-      y="98"
-      x="320"
-      ry="3"
-      rx="3"
-      id="task2"
-    />
-    <rect
-      class="task task1"
-      transform-origin="854.5px 132px"
-      height="20"
-      width="535"
-      y="122"
-      x="587"
-      ry="3"
-      rx="3"
-      id="task3"
-    />
-    <rect
-      class="task task0"
-      transform-origin="966px 84px"
-      height="20"
-      width="446"
-      y="74"
-      x="743"
-      ry="3"
-      rx="3"
-      id="task1"
+      id="a"
     />
     <text
       class="taskText taskText0 width-31.4599609375"
       y="63.5"
-      x="409"
+      x="632"
       font-size="11"
-      id="a1-text"
+      id="a-text"
     >
       A task
     </text>
-    <text
-      class="taskText taskText1 width-75.54833984375"
-      y="111.5"
-      x="453.5"
-      font-size="11"
-      id="task2-text"
-    >
-      Task in Another
-    </text>
-    <text
-      class="taskText taskText1 width-61.03759765625"
-      y="135.5"
-      x="854.5"
-      font-size="11"
-      id="task3-text"
-    >
-      another task
-    </text>
-    <text
-      class="taskText taskText0 width-63.2568359375"
-      y="87.5"
-      x="966"
-      font-size="11"
-      id="task1-text"
-    >
-      Another task
-    </text>
   </g>
   <g>
-    <text class="sectionTitle sectionTitle0" font-size="11" y="74" x="10" dy="0em">
-      <tspan x="10" alignment-baseline="central">Section</tspan>
-    </text>
-    <text class="sectionTitle sectionTitle1" font-size="11" y="122" x="10" dy="0em">
-      <tspan x="10" alignment-baseline="central">Another</tspan>
+    <text class="sectionTitle sectionTitle0" font-size="11" y="62" x="10" dy="0em">
+      <tspan x="10" alignment-baseline="central" />
     </text>
   </g>
-  <g class="today"><line class="today" y2="171" y1="25" x2="91546" x1="91546" /></g>
+  <g class="today"><line class="today" y2="99" y1="25" x2="1143454" x1="1143454" /></g>
   <text class="titleText" y="25" x="632">A Gantt Diagram</text>
 </svg>
