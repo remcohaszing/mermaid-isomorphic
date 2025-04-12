@@ -81,7 +81,7 @@ export interface RenderOptions {
    *
    * This option is ignored in the browser. You need to include the CSS in your build manually.
    */
-  css?: Iterable<URL | string> | URL | string | undefined
+  css?: Iterable<string | URL> | string | undefined | URL
 
   /**
    * If true, a PNG screenshot of the diagram will be added.
@@ -293,9 +293,7 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
 
   return async (diagrams, renderOptions) => {
     count += 1
-    if (!browserPromise) {
-      browserPromise = getBrowser(browserType, launchOptions)
-    }
+    browserPromise ||= getBrowser(browserType, launchOptions)
 
     const context = await browserPromise
 
