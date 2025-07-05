@@ -11,6 +11,10 @@ const faStyle = {
   // We use url, not path. If we use path, the fonts can’t be resolved.
   url: import.meta.resolve('@fortawesome/fontawesome-free/css/all.css')
 }
+const katexStyle = {
+  // We use url, not path. If we use path, the fonts can’t be resolved.
+  url: import.meta.resolve('katex/dist/katex.css')
+}
 
 export interface CreateMermaidRendererOptions {
   /**
@@ -303,7 +307,11 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
     try {
       page = await context.newPage()
       await page.goto(html)
-      const promises = [page.addStyleTag(faStyle), page.addScriptTag(mermaidScript)]
+      const promises = [
+        page.addStyleTag(faStyle),
+        page.addStyleTag(katexStyle),
+        page.addScriptTag(mermaidScript)
+      ]
       const css = renderOptions?.css
       if (typeof css === 'string' || css instanceof URL) {
         promises.push(page.addStyleTag({ url: String(css) }))
