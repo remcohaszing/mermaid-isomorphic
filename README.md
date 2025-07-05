@@ -15,6 +15,7 @@ you want to render Mermaid diagrams in the browser directly, use the
 
 - [Installation](#installation)
 - [Usage](#usage)
+  - [ELK Layout](#elk-layout)
   - [Fonts](#fonts)
   - [Browser](#browser)
 - [API](#api)
@@ -56,6 +57,10 @@ graph TD;
 const results = await renderer([diagram])
 console.log(results)
 ```
+
+### ELK Layout
+
+The [ELK layout engine](https://github.com/mermaid-js/mermaid/tree/develop/packages/mermaid-layout-elk) is enabled by default on Node.js. If you want to use ELK layouts in the browser you'll have to [load it yourself](https://github.com/mermaid-js/mermaid/tree/develop/packages/mermaid-layout-elk#with-bundlers).
 
 ### Fonts
 

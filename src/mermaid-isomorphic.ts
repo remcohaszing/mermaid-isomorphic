@@ -1,12 +1,14 @@
 import { type Mermaid, type MermaidConfig } from 'mermaid'
 import { type BrowserType, chromium, type LaunchOptions, type Page } from 'playwright'
 
-declare const mermaid: Mermaid
-
 const html = import.meta.resolve('../index.html')
-const mermaidScript = {
-  url: import.meta.resolve('mermaid/dist/mermaid.js')
-}
+
+const mermaidImportPath = new URL(import.meta.resolve('mermaid/dist/mermaid.esm.mjs')).pathname
+
+const mermaidElkImportPath = new URL(
+  import.meta.resolve('@mermaid-js/layout-elk/dist/mermaid-layout-elk.esm.mjs')
+).pathname
+
 const faStyle = {
   // We use url, not path. If we use path, the fonts can’t be resolved.
   url: import.meta.resolve('@fortawesome/fontawesome-free/css/all.css')
@@ -135,6 +137,16 @@ interface RenderDiagramsOptions
    * The diagrams to process.
    */
   diagrams: string[]
+
+  /**
+   * The import path to the mermaid module.
+   */
+  mermaidImport: string
+
+  /**
+   * The import path to the mermaid elk layout module.
+   */
+  mermaidElkImport: string
 }
 
 /* c8 ignore start */
@@ -150,9 +162,14 @@ async function renderDiagrams({
   containerStyle,
   diagrams,
   mermaidConfig,
+  mermaidElkImport,
+  mermaidImport,
   prefix,
   screenshot
 }: RenderDiagramsOptions): Promise<PromiseSettledResult<RenderResult>[]> {
+  const mermaid: Mermaid = (await import(mermaidImport)).default
+  const mermaidElk = (await import(mermaidElkImport)).default
+
   await Promise.all(Array.from(document.fonts, (font) => font.load()))
   const parser = new DOMParser()
   const serializer = new XMLSerializer()
@@ -164,6 +181,7 @@ async function renderDiagrams({
   Object.assign(container.style, containerStyle)
 
   document.body.append(container)
+  mermaid.registerLayoutLoaders(mermaidElk)
   mermaid.initialize(mermaidConfig)
 
   /**
@@ -262,7 +280,10 @@ async function getBrowser(
   browserType: BrowserType,
   launchOptions: LaunchOptions | undefined
 ): Promise<SimpleContext> {
-  const browser = await browserType.launch(launchOptions)
+  const browser = await browserType.launch({
+    ...launchOptions,
+    args: ['--disable-web-security', ...(launchOptions?.args ?? [])]
+  })
   const context = await browser.newContext({ bypassCSP: true })
 
   return {
@@ -307,11 +328,7 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
     try {
       page = await context.newPage()
       await page.goto(html)
-      const promises = [
-        page.addStyleTag(faStyle),
-        page.addStyleTag(katexStyle),
-        page.addScriptTag(mermaidScript)
-      ]
+      const promises = [page.addStyleTag(faStyle), page.addStyleTag(katexStyle)]
       const css = renderOptions?.css
       if (typeof css === 'string' || css instanceof URL) {
         promises.push(page.addStyleTag({ url: String(css) }))
@@ -331,6 +348,8 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
           fontFamily: 'arial,sans-serif',
           ...renderOptions?.mermaidConfig
         },
+        mermaidImport: mermaidImportPath,
+        mermaidElkImport: mermaidElkImportPath,
         prefix: renderOptions?.prefix ?? 'mermaid'
       })
       if (renderOptions?.screenshot) {
