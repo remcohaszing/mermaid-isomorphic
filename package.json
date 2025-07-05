@@ -32,7 +32,9 @@
   "scripts": {
     "prepack": "tsc --build",
     "pretest": "tsc --build",
-    "test": "c8 node --enable-source-maps --test"
+    "pretest-minimal": "tsc --build",
+    "test": "c8 node --enable-source-maps --test",
+    "test-minimal": "node --enable-source-maps dist/minimal.test.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.0.0",
