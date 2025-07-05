@@ -3,10 +3,10 @@ import { type BrowserType, chromium, type LaunchOptions, type Page } from 'playw
 
 const html = import.meta.resolve('../index.html')
 
-const mermaidImportPath = new URL(import.meta.resolve('mermaid/dist/mermaid.esm.min.mjs')).pathname
+const mermaidImportPath = new URL(import.meta.resolve('mermaid/dist/mermaid.esm.mjs')).pathname
 
 const mermaidElkImportPath = new URL(
-  import.meta.resolve('@mermaid-js/layout-elk/dist/mermaid-layout-elk.esm.min.mjs')
+  import.meta.resolve('@mermaid-js/layout-elk/dist/mermaid-layout-elk.esm.mjs')
 ).pathname
 
 const faStyle = {
