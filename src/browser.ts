@@ -1,4 +1,3 @@
-import mermaidElk from '@mermaid-js/layout-elk'
 import mermaid from 'mermaid'
 
 import {
@@ -6,8 +5,6 @@ import {
   type createMermaidRenderer as nodeImplementation,
   type RenderResult
 } from './mermaid-isomorphic.js'
-
-mermaid.registerLayoutLoaders(mermaidElk)
 
 const parser = new DOMParser()
 const serializer = new XMLSerializer()
