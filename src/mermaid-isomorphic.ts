@@ -1,5 +1,7 @@
-import { type Mermaid, type MermaidConfig } from 'mermaid'
-import { type BrowserType, chromium, type LaunchOptions, type Page } from 'playwright'
+import type { Mermaid, MermaidConfig } from 'mermaid'
+import type { BrowserType, LaunchOptions, Page } from 'playwright'
+
+import { chromium } from 'playwright'
 
 declare const mermaid: Mermaid
 

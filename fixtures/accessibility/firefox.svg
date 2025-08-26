@@ -217,6 +217,17 @@
       background-color: rgba(232, 232, 232, 0.8);
       fill: rgba(232, 232, 232, 0.8);
     }
+    #mermaid-0 .label-icon {
+      display: inline-block;
+      height: 1em;
+      overflow: visible;
+      vertical-align: -0.125em;
+    }
+    #mermaid-0 .node .label-icon path {
+      fill: currentColor;
+      stroke: revert;
+      stroke-width: revert;
+    }
     #mermaid-0 :root {
       --mermaid-font-family: arial, sans-serif;
     }
@@ -422,7 +433,7 @@
           class="node default"
         >
           <polygon
-            transform="translate(-93.25,93.25)"
+            transform="translate(-92.75, 93.25)"
             class="label-container"
             points="93.25,0 186.5,-93.25 93.25,-186.5 0,-93.25"
           />

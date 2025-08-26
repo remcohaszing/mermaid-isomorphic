@@ -1,15 +1,15 @@
 <!--
 {
-  "height": 120,
+  "height": 112,
   "id": "mermaid-0",
-  "width": 211.8125
+  "width": 203.8125
 }
 -->
 <svg
   aria-roledescription="flowchart-v2"
   role="graphics-document document"
-  viewBox="-8 -8 211.8125 120"
-  style="max-width: 211.8125px"
+  viewBox="0 0 203.8125 112"
+  style="max-width: 203.8125px"
   class="flowchart"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns="http://www.w3.org/2000/svg"
@@ -210,6 +210,17 @@
       opacity: 0.5;
       background-color: rgba(232, 232, 232, 0.8);
       fill: rgba(232, 232, 232, 0.8);
+    }
+    #mermaid-0 .label-icon {
+      display: inline-block;
+      height: 1em;
+      overflow: visible;
+      vertical-align: -0.125em;
+    }
+    #mermaid-0 .node .label-icon path {
+      fill: currentColor;
+      stroke: revert;
+      stroke-width: revert;
     }
     #mermaid-0 :root {
       --mermaid-font-family: arial, sans-serif;

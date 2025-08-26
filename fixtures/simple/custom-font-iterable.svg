@@ -211,6 +211,17 @@
       background-color: rgba(232, 232, 232, 0.8);
       fill: rgba(232, 232, 232, 0.8);
     }
+    #mermaid-0 .label-icon {
+      display: inline-block;
+      height: 1em;
+      overflow: visible;
+      vertical-align: -0.125em;
+    }
+    #mermaid-0 .node .label-icon path {
+      fill: currentColor;
+      stroke: revert;
+      stroke-width: revert;
+    }
     #mermaid-0 :root {
       --mermaid-font-family: 'Irish Grover';
     }

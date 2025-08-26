@@ -211,6 +211,17 @@
       background-color: hsl(0, 0%, 34.4117647059%);
       fill: hsl(0, 0%, 34.4117647059%);
     }
+    #prefix-0 .label-icon {
+      display: inline-block;
+      height: 1em;
+      overflow: visible;
+      vertical-align: -0.125em;
+    }
+    #prefix-0 .node .label-icon path {
+      fill: currentColor;
+      stroke: revert;
+      stroke-width: revert;
+    }
     #prefix-0 :root {
       --mermaid-font-family: arial, sans-serif;
     }

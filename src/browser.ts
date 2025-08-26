@@ -1,10 +1,10 @@
-import mermaid from 'mermaid'
-
-import {
-  type MermaidRenderer,
-  type createMermaidRenderer as nodeImplementation,
-  type RenderResult
+import type {
+  MermaidRenderer,
+  createMermaidRenderer as nodeImplementation,
+  RenderResult
 } from './mermaid-isomorphic.js'
+
+import mermaid from 'mermaid'
 
 const parser = new DOMParser()
 const serializer = new XMLSerializer()

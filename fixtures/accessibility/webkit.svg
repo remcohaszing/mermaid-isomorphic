@@ -1,8 +1,8 @@
 <!--
 {
-  "height": 210.5,
+  "height": 202.5,
   "id": "mermaid-0",
-  "width": 643.078125,
+  "width": 635.078125,
   "description": "Bob's Burgers process for making big decisions",
   "title": "Big Decisions"
 }
@@ -12,8 +12,8 @@
   aria-describedby="chart-desc-mermaid-0"
   aria-roledescription="flowchart-v2"
   role="graphics-document document"
-  viewBox="-8 -8 643.078125 210.5"
-  style="max-width: 643.078125px"
+  viewBox="0 0 635.078125 202.5"
+  style="max-width: 635.078125px"
   class="flowchart"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns="http://www.w3.org/2000/svg"
@@ -217,6 +217,17 @@
       background-color: rgba(232, 232, 232, 0.8);
       fill: rgba(232, 232, 232, 0.8);
     }
+    #mermaid-0 .label-icon {
+      display: inline-block;
+      height: 1em;
+      overflow: visible;
+      vertical-align: -0.125em;
+    }
+    #mermaid-0 .node .label-icon path {
+      fill: currentColor;
+      stroke: revert;
+      stroke-width: revert;
+    }
     #mermaid-0 :root {
       --mermaid-font-family: arial, sans-serif;
     }
@@ -414,7 +425,7 @@
         </g>
         <g transform="translate(364.21875, 101.25)" id="flowchart-B-1" class="node default">
           <polygon
-            transform="translate(-93.25,93.25)"
+            transform="translate(-92.75, 93.25)"
             class="label-container"
             points="93.25,0 186.5,-93.25 93.25,-186.5 0,-93.25"
           />
