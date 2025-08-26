@@ -5,19 +5,6 @@ import { chromium } from 'playwright'
 
 declare const mermaid: Mermaid
 
-const html = import.meta.resolve('../index.html')
-const mermaidScript = {
-  url: import.meta.resolve('mermaid/dist/mermaid.js')
-}
-const faStyle = {
-  // We use url, not path. If we use path, the fonts can’t be resolved.
-  url: import.meta.resolve('@fortawesome/fontawesome-free/css/all.css')
-}
-const katexStyle = {
-  // We use url, not path. If we use path, the fonts can’t be resolved.
-  url: import.meta.resolve('katex/dist/katex.css')
-}
-
 export interface CreateMermaidRendererOptions {
   /**
    * The Playwright browser to use.
@@ -308,11 +295,12 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
 
     try {
       page = await context.newPage()
-      await page.goto(html)
+      await page.goto(import.meta.resolve('../index.html'))
       const promises = [
-        page.addStyleTag(faStyle),
-        page.addStyleTag(katexStyle),
-        page.addScriptTag(mermaidScript)
+        // We use url, not path. If we use path, the fonts can’t be resolved.
+        page.addStyleTag({ url: import.meta.resolve('@fortawesome/fontawesome-free/css/all.css') }),
+        page.addStyleTag({ url: import.meta.resolve('katex/dist/katex.css') }),
+        page.addScriptTag({ url: import.meta.resolve('mermaid/dist/mermaid.js') })
       ]
       const css = renderOptions?.css
       if (typeof css === 'string' || css instanceof URL) {
