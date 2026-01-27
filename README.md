@@ -16,6 +16,7 @@ you want to render Mermaid diagrams in the browser directly, use the
 - [Installation](#installation)
 - [Usage](#usage)
   - [Fonts](#fonts)
+  - [Icon Packs](#icon-packs)
   - [Browser](#browser)
 - [API](#api)
   - [`createMermaidRenderer(options?: CreateMermaidRendererOptions)`](#createmermaidrendereroptions-createmermaidrendereroptions)
@@ -72,7 +73,7 @@ By default `mermaid-isomorphic` uses the `arial,sans-serif` font family. This fo
 compatible across all browsers and devices. If you wish to use a custom font, you need to specify
 both the `mermaidConfig.fontFamily` and `css` options.
 
-#### Custom Icon Packs
+### Icon Packs
 
 You can register custom icon packs to use in your diagrams.
 IconPacks must be loaded before being registered - only the
