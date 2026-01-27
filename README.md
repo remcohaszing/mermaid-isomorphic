@@ -72,6 +72,47 @@ By default `mermaid-isomorphic` uses the `arial,sans-serif` font family. This fo
 compatible across all browsers and devices. If you wish to use a custom font, you need to specify
 both the `mermaidConfig.fontFamily` and `css` options.
 
+#### Custom Icon Packs
+
+You can register custom icon packs to use in your diagrams.
+IconPacks must be loaded before being registered - only the
+[SyncLoader](https://github.com/mermaid-js/mermaid/blob/09d065/packages/mermaid/src/rendering-util/icons.ts#L13)
+interface is supported
+
+```js
+import { createMermaidRenderer } from 'mermaid-isomorphic'
+
+const renderer = createMermaidRenderer()
+const diagram = `
+flowchart TB
+  MyNode@{ icon: "custom-icons:alien" }
+`
+
+const inlineIconPack = {
+  name: 'custom-icons',
+  icons: {
+    prefix: 'custom-icons',
+    icons: {
+      alien: {
+        body: '<path d="M8 16L3.54223 12.3383..." />',
+        width: 80,
+        height: 80
+      }
+    }
+  }
+}
+const remoteIconPack = {
+  name: 'logos',
+  icons: await fetch('https://unpkg.com/@iconify-json/logos@1/icons.json').then((res) => res.json()),
+};
+
+const results = await renderer([diagram], { iconPacks: [inlineIconPack, remoteIconPack] })
+console.log(results)
+```
+
+Icon references in diagrams use the format `prefix:iconname`, where the prefix matches the prefix
+defined in your icon pack.
+
 ### Browser
 
 `mermaid-isomorphic` is intended for use in Node.js, but also provides a browser export. This means
