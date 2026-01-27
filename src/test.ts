@@ -1,4 +1,4 @@
-import type { RenderResult } from 'mermaid-isomorphic'
+import type { IconPack, RenderResult } from 'mermaid-isomorphic'
 import type { Browser } from 'playwright'
 
 import assert from 'node:assert/strict'
@@ -88,6 +88,30 @@ testFixturesDirectory({
       const results = await renderer([String(file)], {
         css: [irishGrover, irishGrover],
         mermaidConfig: { fontFamily: '"Irish Grover"' }
+      })
+
+      return testFixtureResults(results)
+    },
+
+    async 'custom-icon-pack.svg'(file) {
+      const renderer = createMermaidRenderer()
+      const ICON_PACK = {
+        name: 'custom-icons',
+        icons: {
+          prefix: 'custom-icons',
+          icons: {
+            rect: {
+              body: '<g><rect width="80" height="80" x="0" y="0" fill="blue" /></g>',
+              width: 80,
+              height: 80
+            }
+          }
+        }
+      } satisfies IconPack
+      const results = await renderer([String(file)], {
+        iconPacks: [ICON_PACK],
+        mermaidConfig: { logLevel: 'trace' },
+        screenshot: true
       })
 
       return testFixtureResults(results)

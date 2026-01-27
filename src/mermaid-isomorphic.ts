@@ -1,3 +1,4 @@
+import type { IconifyJSON } from '@iconify/types'
 import type { Mermaid, MermaidConfig } from 'mermaid'
 import type { BrowserType, LaunchOptions, Page } from 'playwright'
 
@@ -56,6 +57,18 @@ export interface RenderResult {
   width: number
 }
 
+export interface IconPack {
+  /**
+   * Asd
+   */
+  name: string
+
+  /**
+   * Asd
+   */
+  icons: IconifyJSON
+}
+
 export interface RenderOptions {
   /**
    * A style to apply to the container used to render the diagram.
@@ -98,6 +111,13 @@ export interface RenderOptions {
    * @default 'mermaid'
    */
   prefix?: string | undefined
+
+  /**
+   * Icon Pacs
+   *
+   * @default no extra icon packs
+   */
+  iconPacks?: IconPack[]
 }
 
 /**
@@ -118,7 +138,7 @@ export type MermaidRenderer = (
 
 interface RenderDiagramsOptions
   extends Required<
-    Pick<RenderOptions, 'containerStyle' | 'mermaidConfig' | 'prefix' | 'screenshot'>
+    Pick<RenderOptions, 'containerStyle' | 'iconPacks' | 'mermaidConfig' | 'prefix' | 'screenshot'>
   > {
   /**
    * The diagrams to process.
@@ -138,6 +158,7 @@ interface RenderDiagramsOptions
 async function renderDiagrams({
   containerStyle,
   diagrams,
+  iconPacks,
   mermaidConfig,
   prefix,
   screenshot
@@ -154,6 +175,7 @@ async function renderDiagrams({
 
   document.body.append(container)
   mermaid.initialize(mermaidConfig)
+  mermaid.registerIconPacks(iconPacks)
 
   /**
    * Get an aria value form a referencing attribute.
@@ -321,7 +343,8 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
           fontFamily: 'arial,sans-serif',
           ...renderOptions?.mermaidConfig
         },
-        prefix: renderOptions?.prefix ?? 'mermaid'
+        prefix: renderOptions?.prefix ?? 'mermaid',
+        iconPacks: renderOptions?.iconPacks ?? []
       })
       if (renderOptions?.screenshot) {
         for (const result of renderResults) {
