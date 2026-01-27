@@ -109,9 +109,7 @@ testFixturesDirectory({
         }
       } satisfies IconPack
       const results = await renderer([String(file)], {
-        iconPacks: [ICON_PACK],
-        mermaidConfig: { logLevel: 'trace' },
-        screenshot: true
+        iconPacks: [ICON_PACK]
       })
 
       return testFixtureResults(results)
