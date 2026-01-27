@@ -59,12 +59,16 @@ export interface RenderResult {
 
 export interface IconPack {
   /**
-   * Asd
+   * Name for IconPack Loader
+   *
+   * @example 'fa'
    */
   name: string
 
   /**
-   * Asd
+   * Resolved definition for iconify icons
+   *
+   * @see IconifyJSON
    */
   icons: IconifyJSON
 }
