@@ -119,7 +119,7 @@ export interface RenderOptions {
   /**
    * Icon Pacs
    *
-   * @default no extra icon packs
+   * @default []
    */
   iconPacks?: IconPack[]
 }
