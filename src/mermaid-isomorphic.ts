@@ -178,8 +178,8 @@ async function renderDiagrams({
   Object.assign(container.style, containerStyle)
 
   document.body.append(container)
-  mermaid.initialize(mermaidConfig)
   mermaid.registerIconPacks(iconPacks)
+  mermaid.initialize(mermaidConfig)
 
   /**
    * Get an aria value form a referencing attribute.
