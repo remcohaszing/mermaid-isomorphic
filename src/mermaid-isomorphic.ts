@@ -60,7 +60,7 @@ export type IconPack = Extract<
   Parameters<typeof mermaid.registerIconPacks>[0][number],
   {
     /**
-     * Exclude AsyncLoader interface
+     * Include only sync interface
      */
     icons: unknown
   }
