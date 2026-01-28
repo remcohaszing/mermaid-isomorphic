@@ -110,7 +110,7 @@ export interface RenderOptions {
   prefix?: string | undefined
 
   /**
-   * Icon Pacs
+   * Icon Packs
    *
    * @default []
    */
