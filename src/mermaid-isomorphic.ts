@@ -116,10 +116,9 @@ export type MermaidRenderer = (
   options?: RenderOptions
 ) => Promise<PromiseSettledResult<RenderResult>[]>
 
-interface RenderDiagramsOptions
-  extends Required<
-    Pick<RenderOptions, 'containerStyle' | 'mermaidConfig' | 'prefix' | 'screenshot'>
-  > {
+interface RenderDiagramsOptions extends Required<
+  Pick<RenderOptions, 'containerStyle' | 'mermaidConfig' | 'prefix' | 'screenshot'>
+> {
   /**
    * The diagrams to process.
    */
