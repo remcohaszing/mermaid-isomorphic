@@ -33,7 +33,7 @@
     "prepack": "tsc --build",
     "pretest": "tsc --build",
     "pretest-minimal": "tsc --build",
-    "test": "c8 node --enable-source-maps dist/test.js",
+    "test": "c8 node --enable-source-maps --test-reporter junit --test-reporter-destination junit.xml --test-reporter spec --test-reporter-destination stdout dist/test.js",
     "test-minimal": "node --enable-source-maps dist/minimal.test.js"
   },
   "dependencies": {
