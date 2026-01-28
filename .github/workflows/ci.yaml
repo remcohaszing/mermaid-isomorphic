@@ -71,6 +71,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         node-version:
           - 18
@@ -88,7 +89,7 @@ jobs:
       - uses: codecov/codecov-action@v5
         if: ${{ matrix.node-version == 24 }}
       - uses: codecov/codecov-action@v5
-        if: ${{ matrix.node-version == 24 }}
+        if: always()
         with:
           report_type: test_results
 
