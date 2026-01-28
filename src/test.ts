@@ -1,7 +1,5 @@
-import type { IconPack, RenderResult } from 'mermaid-isomorphic'
-import { createMermaidRenderer } from 'mermaid-isomorphic'
+import type { RenderResult } from 'mermaid-isomorphic'
 import type { Browser } from 'playwright'
-import { chromium, firefox, webkit } from 'playwright'
 
 import assert from 'node:assert/strict'
 import { writeFile } from 'node:fs/promises'
@@ -10,6 +8,8 @@ import { after, before, describe, test } from 'node:test'
 import { fileURLToPath } from 'node:url'
 
 import { build } from 'esbuild'
+import { createMermaidRenderer } from 'mermaid-isomorphic'
+import { chromium, firefox, webkit } from 'playwright'
 import { testFixturesDirectory } from 'snapshot-fixtures'
 
 const irishGrover = import.meta.resolve('@fontsource/irish-grover')
@@ -110,7 +110,7 @@ testFixturesDirectory({
                 }
               }
             }
-          } satisfies IconPack
+          }
         ]
       })
 

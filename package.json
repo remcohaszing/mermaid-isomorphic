@@ -45,7 +45,6 @@
     "playwright": "1"
   },
   "devDependencies": {
-    "@iconify/types": "^2.0.0",
     "@fontsource/irish-grover": "^5.0.0",
     "@remcohaszing/eslint": "^13.0.0",
     "@types/node": "^25.0.0",

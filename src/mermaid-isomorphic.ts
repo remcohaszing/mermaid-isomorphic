@@ -1,4 +1,3 @@
-import type { IconifyJSON } from '@iconify/types'
 import type { Mermaid, MermaidConfig } from 'mermaid'
 import type { BrowserType, LaunchOptions, Page } from 'playwright'
 
@@ -57,21 +56,15 @@ export interface RenderResult {
   width: number
 }
 
-export interface IconPack {
-  /**
-   * Name for IconPack Loader
-   *
-   * @example 'fa'
-   */
-  name: string
-
-  /**
-   * Resolved definition for iconify icons
-   *
-   * @see IconifyJSON
-   */
-  icons: IconifyJSON
-}
+export type IconPack = Extract<
+  Parameters<typeof mermaid.registerIconPacks>[0][number],
+  {
+    /**
+     * Exclude AsyncLoader interface
+     */
+    icons: unknown
+  }
+>
 
 export interface RenderOptions {
   /**
