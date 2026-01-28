@@ -76,9 +76,8 @@ both the `mermaidConfig.fontFamily` and `css` options.
 ### Icon Packs
 
 You can register custom icon packs to use in your diagrams.
-IconPacks must be loaded before being registered - only the
-[SyncLoader](https://github.com/mermaid-js/mermaid/blob/09d065/packages/mermaid/src/rendering-util/icons.ts#L13)
-interface is supported
+Please refer to the [mermaid-js](https://mermaid.ai/open-source/config/icons.html) documentation.
+Keep in mind that lazy-loading is not supported.
 
 ```js
 import { createMermaidRenderer } from 'mermaid-isomorphic'
@@ -102,12 +101,8 @@ const inlineIconPack = {
     }
   }
 }
-const remoteIconPack = {
-  name: 'logos',
-  icons: await fetch('https://unpkg.com/@iconify-json/logos@1/icons.json').then((res) => res.json()),
-};
 
-const results = await renderer([diagram], { iconPacks: [inlineIconPack, remoteIconPack] })
+const results = await renderer([diagram], { iconPacks: [inlineIconPack] })
 console.log(results)
 ```
 
