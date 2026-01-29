@@ -76,7 +76,7 @@ both the `mermaidConfig.fontFamily` and `css` options.
 ### Icon Packs
 
 You can register custom icon packs to use in your diagrams.
-Please refer to the [mermaid-js](https://mermaid.ai/open-source/config/icons.html) documentation.
+For more information refer to the [mermaid-js](https://mermaid.ai/open-source/config/icons.html) documentation.
 Keep in mind that lazy-loading is not supported.
 
 ```js
