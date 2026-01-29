@@ -16,6 +16,7 @@ you want to render Mermaid diagrams in the browser directly, use the
 - [Installation](#installation)
 - [Usage](#usage)
   - [Fonts](#fonts)
+  - [Icon Packs](#icon-packs)
   - [Browser](#browser)
 - [API](#api)
   - [`createMermaidRenderer(options?: CreateMermaidRendererOptions)`](#createmermaidrendereroptions-createmermaidrendereroptions)
@@ -71,6 +72,42 @@ serving the SVG.
 By default `mermaid-isomorphic` uses the `arial,sans-serif` font family. This font family is mostly
 compatible across all browsers and devices. If you wish to use a custom font, you need to specify
 both the `mermaidConfig.fontFamily` and `css` options.
+
+### Icon Packs
+
+You can register custom icon packs to use in your diagrams.
+For more information refer to the [mermaid-js](https://mermaid.ai/open-source/config/icons.html) documentation.
+Keep in mind that lazy-loading is not supported.
+
+```js
+import { createMermaidRenderer } from 'mermaid-isomorphic'
+
+const renderer = createMermaidRenderer()
+const diagram = `
+flowchart TB
+  MyNode@{ icon: "custom-icons:alien" }
+`
+
+const inlineIconPack = {
+  name: 'custom-icons',
+  icons: {
+    prefix: 'custom-icons',
+    icons: {
+      alien: {
+        body: '<path d="M8 16L3.54223 12.3383..." />',
+        width: 80,
+        height: 80
+      }
+    }
+  }
+}
+
+const results = await renderer([diagram], { iconPacks: [inlineIconPack] })
+console.log(results)
+```
+
+Icon references in diagrams use the format `prefix:iconname`, where the prefix matches the prefix
+defined in your icon pack.
 
 ### Browser
 
