@@ -1,8 +1,8 @@
 <!--
 {
-  "height": 203,
+  "height": 201.828125,
   "id": "mermaid-0",
-  "width": 640,
+  "width": 640.796875,
   "description": "Bob's Burgers process for making big decisions",
   "title": "Big Decisions"
 }
@@ -13,8 +13,8 @@
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   class="flowchart"
-  style="max-width: 640px"
-  viewBox="0 0 640 203"
+  style="max-width: 640.796875px"
+  viewBox="0 0 640.796875 201.828125"
   role="graphics-document document"
   aria-roledescription="flowchart-v2"
   aria-describedby="chart-desc-mermaid-0"
@@ -343,25 +343,25 @@
       <g class="clusters" />
       <g class="edgePaths">
         <path
-          d="M225,101.5L229.167,101.5C233.333,101.5,241.667,101.5,249.333,101.5C257,101.5,264,101.5,267.5,101.5L271,101.5"
+          d="M226.688,100.914L230.854,100.914C235.021,100.914,243.354,100.914,251.021,100.914C258.688,100.914,265.688,100.914,269.188,100.914L272.688,100.914"
           id="L_A_B_0"
           class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
           style=""
           data-edge="true"
           data-et="edge"
           data-id="L_A_B_0"
-          data-points="W3sieCI6MjI1LCJ5IjoxMDEuNX0seyJ4IjoyNTAsInkiOjEwMS41fSx7IngiOjI3NSwieSI6MTAxLjV9XQ=="
+          data-points="W3sieCI6MjI2LjY4NzUsInkiOjEwMC45MTQwNjI1fSx7IngiOjI1MS42ODc1LCJ5IjoxMDAuOTE0MDYyNX0seyJ4IjoyNzYuNjg3NSwieSI6MTAwLjkxNDA2MjV9XQ=="
           marker-end="url(#mermaid-0_flowchart-v2-pointEnd)"
         />
         <path
-          d="M462,101.5L466.167,101.5C470.333,101.5,478.667,101.5,486.333,101.5C494,101.5,501,101.5,504.5,101.5L508,101.5"
+          d="M462.516,100.914L466.682,100.914C470.849,100.914,479.182,100.914,486.849,100.914C494.516,100.914,501.516,100.914,505.016,100.914L508.516,100.914"
           id="L_B_D_0"
           class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
           style=""
           data-edge="true"
           data-et="edge"
           data-id="L_B_D_0"
-          data-points="W3sieCI6NDYyLCJ5IjoxMDEuNX0seyJ4Ijo0ODcsInkiOjEwMS41fSx7IngiOjUxMiwieSI6MTAxLjV9XQ=="
+          data-points="W3sieCI6NDYyLjUxNTYyNSwieSI6MTAwLjkxNDA2MjV9LHsieCI6NDg3LjUxNTYyNSwieSI6MTAwLjkxNDA2MjV9LHsieCI6NTEyLjUxNTYyNSwieSI6MTAwLjkxNDA2MjV9XQ=="
           marker-end="url(#mermaid-0_flowchart-v2-pointEnd)"
         />
       </g>
@@ -404,11 +404,18 @@
         </g>
       </g>
       <g class="nodes">
-        <g class="node default" id="flowchart-A-0" transform="translate(116.5, 101.5)">
-          <rect class="basic label-container" style="" x="-108.5" y="-27" width="217" height="54" />
-          <g class="label" style="" transform="translate(-78.5, -12)">
+        <g class="node default" id="flowchart-A-0" transform="translate(117.34375, 100.9140625)">
+          <rect
+            class="basic label-container"
+            style=""
+            x="-109.34375"
+            y="-27"
+            width="218.6875"
+            height="54"
+          />
+          <g class="label" style="" transform="translate(-79.34375, -12)">
             <rect />
-            <foreignObject width="157" height="24"
+            <foreignObject width="158.6875" height="24"
               ><div
                 xmlns="http://www.w3.org/1999/xhtml"
                 style="
@@ -424,15 +431,15 @@
             >
           </g>
         </g>
-        <g class="node default" id="flowchart-B-1" transform="translate(368.5, 101.5)">
+        <g class="node default" id="flowchart-B-1" transform="translate(369.6015625, 100.9140625)">
           <polygon
-            points="93.5,0 187,-93.5 93.5,-187 0,-93.5"
+            points="92.9140625,0 185.828125,-92.9140625 92.9140625,-185.828125 0,-92.9140625"
             class="label-container"
-            transform="translate(-93, 93.5)"
+            transform="translate(-92.4140625, 92.9140625)"
           />
-          <g class="label" style="" transform="translate(-66.5, -12)">
+          <g class="label" style="" transform="translate(-65.9140625, -12)">
             <rect />
-            <foreignObject width="133" height="24"
+            <foreignObject width="131.828125" height="24"
               ><div
                 xmlns="http://www.w3.org/1999/xhtml"
                 style="
@@ -448,11 +455,18 @@
             >
           </g>
         </g>
-        <g class="node default" id="flowchart-D-3" transform="translate(572, 101.5)">
-          <rect class="basic label-container" style="" x="-60" y="-27" width="120" height="54" />
-          <g class="label" style="" transform="translate(-30, -12)">
+        <g class="node default" id="flowchart-D-3" transform="translate(572.65625, 100.9140625)">
+          <rect
+            class="basic label-container"
+            style=""
+            x="-60.140625"
+            y="-27"
+            width="120.28125"
+            height="54"
+          />
+          <g class="label" style="" transform="translate(-30.140625, -12)">
             <rect />
-            <foreignObject width="60" height="24"
+            <foreignObject width="60.28125" height="24"
               ><div
                 xmlns="http://www.w3.org/1999/xhtml"
                 style="
