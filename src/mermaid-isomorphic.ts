@@ -56,6 +56,16 @@ export interface RenderResult {
   width: number
 }
 
+export type IconPack = Extract<
+  Parameters<typeof mermaid.registerIconPacks>[0][number],
+  {
+    /**
+     * Include only sync interface
+     */
+    icons: unknown
+  }
+>
+
 export interface RenderOptions {
   /**
    * A style to apply to the container used to render the diagram.
@@ -98,6 +108,13 @@ export interface RenderOptions {
    * @default 'mermaid'
    */
   prefix?: string | undefined
+
+  /**
+   * Icon Packs
+   *
+   * @default []
+   */
+  iconPacks?: IconPack[]
 }
 
 /**
@@ -117,7 +134,7 @@ export type MermaidRenderer = (
 ) => Promise<PromiseSettledResult<RenderResult>[]>
 
 interface RenderDiagramsOptions extends Required<
-  Pick<RenderOptions, 'containerStyle' | 'mermaidConfig' | 'prefix' | 'screenshot'>
+  Pick<RenderOptions, 'containerStyle' | 'iconPacks' | 'mermaidConfig' | 'prefix' | 'screenshot'>
 > {
   /**
    * The diagrams to process.
@@ -137,6 +154,7 @@ interface RenderDiagramsOptions extends Required<
 async function renderDiagrams({
   containerStyle,
   diagrams,
+  iconPacks,
   mermaidConfig,
   prefix,
   screenshot
@@ -152,6 +170,7 @@ async function renderDiagrams({
   Object.assign(container.style, containerStyle)
 
   document.body.append(container)
+  mermaid.registerIconPacks(iconPacks)
   mermaid.initialize(mermaidConfig)
 
   /**
@@ -320,7 +339,8 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
           fontFamily: 'arial,sans-serif',
           ...renderOptions?.mermaidConfig
         },
-        prefix: renderOptions?.prefix ?? 'mermaid'
+        prefix: renderOptions?.prefix ?? 'mermaid',
+        iconPacks: renderOptions?.iconPacks ?? []
       })
       if (renderOptions?.screenshot) {
         for (const result of renderResults) {
