@@ -2,7 +2,7 @@
 {
   "height": 112,
   "id": "mermaid-0",
-  "width": 204.4375
+  "width": 204
 }
 -->
 <svg
@@ -11,8 +11,8 @@
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   class="flowchart"
-  style="max-width: 204.4375px"
-  viewBox="0 0 204.4375 112"
+  style="max-width: 204px"
+  viewBox="0 0 204 112"
   role="graphics-document document"
   aria-roledescription="flowchart-v2"
 >
@@ -337,14 +337,14 @@
       <g class="clusters" />
       <g class="edgePaths">
         <path
-          d="M77.219,56L81.385,56C85.552,56,93.885,56,101.552,56C109.219,56,116.219,56,119.719,56L123.219,56"
+          d="M77,56L81.167,56C85.333,56,93.667,56,101.333,56C109,56,116,56,119.5,56L123,56"
           id="L_A_B_0"
           class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link"
           style=""
           data-edge="true"
           data-et="edge"
           data-id="L_A_B_0"
-          data-points="W3sieCI6NzcuMjE4NzUsInkiOjU2fSx7IngiOjEwMi4yMTg3NSwieSI6NTZ9LHsieCI6MTI3LjIxODc1LCJ5Ijo1Nn1d"
+          data-points="W3sieCI6NzcsInkiOjU2fSx7IngiOjEwMiwieSI6NTZ9LHsieCI6MTI3LCJ5Ijo1Nn1d"
           marker-end="url(#mermaid-0_flowchart-v2-pointEnd)"
         />
       </g>
@@ -369,18 +369,11 @@
         </g>
       </g>
       <g class="nodes">
-        <g class="node default" id="flowchart-A-0" transform="translate(42.609375, 56)">
-          <rect
-            class="basic label-container"
-            style=""
-            x="-34.609375"
-            y="-48"
-            width="69.21875"
-            height="96"
-          />
-          <g class="label" style="" transform="translate(-4.609375, -33)">
+        <g class="node default" id="flowchart-A-0" transform="translate(42.5, 56)">
+          <rect class="basic label-container" style="" x="-34.5" y="-48" width="69" height="96" />
+          <g class="label" style="" transform="translate(-4.5, -33)">
             <rect />
-            <foreignObject width="9.21875" height="66"
+            <foreignObject width="9" height="66"
               ><div
                 xmlns="http://www.w3.org/1999/xhtml"
                 style="
@@ -400,18 +393,11 @@
             ></foreignObject>
           </g>
         </g>
-        <g class="node default" id="flowchart-B-1" transform="translate(161.828125, 56)">
-          <rect
-            class="basic label-container"
-            style=""
-            x="-34.609375"
-            y="-48"
-            width="69.21875"
-            height="96"
-          />
-          <g class="label" style="" transform="translate(-4.609375, -33)">
+        <g class="node default" id="flowchart-B-1" transform="translate(161.5, 56)">
+          <rect class="basic label-container" style="" x="-34.5" y="-48" width="69" height="96" />
+          <g class="label" style="" transform="translate(-4.5, -33)">
             <rect />
-            <foreignObject width="9.21875" height="66"
+            <foreignObject width="9" height="66"
               ><div
                 xmlns="http://www.w3.org/1999/xhtml"
                 style="

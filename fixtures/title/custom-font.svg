@@ -2,7 +2,7 @@
 {
   "height": 120,
   "id": "mermaid-0",
-  "width": 89.296875
+  "width": 89
 }
 -->
 <svg
@@ -11,8 +11,8 @@
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   class="flowchart"
-  style="max-width: 89.296875px"
-  viewBox="0 -50 89.296875 120"
+  style="max-width: 89px"
+  viewBox="0 -50 89 120"
   role="graphics-document document"
   aria-roledescription="flowchart-v2"
 >
@@ -338,18 +338,11 @@
       <g class="edgePaths" />
       <g class="edgeLabels" />
       <g class="nodes">
-        <g class="node default" id="flowchart-id-0" transform="translate(44.6484375, 35)">
-          <rect
-            class="basic label-container"
-            style=""
-            x="-36.6484375"
-            y="-27"
-            width="73.296875"
-            height="54"
-          />
-          <g class="label" style="" transform="translate(-6.6484375, -12)">
+        <g class="node default" id="flowchart-id-0" transform="translate(44.5, 35)">
+          <rect class="basic label-container" style="" x="-36.5" y="-27" width="73" height="54" />
+          <g class="label" style="" transform="translate(-6.5, -12)">
             <rect />
-            <foreignObject width="13.296875" height="24"
+            <foreignObject width="13" height="24"
               ><div
                 xmlns="http://www.w3.org/1999/xhtml"
                 style="
@@ -368,5 +361,5 @@
       </g>
     </g>
   </g>
-  <text text-anchor="middle" x="44.6484375" y="-25" class="flowchartTitleText">Node</text>
+  <text text-anchor="middle" x="44.5" y="-25" class="flowchartTitleText">Node</text>
 </svg>

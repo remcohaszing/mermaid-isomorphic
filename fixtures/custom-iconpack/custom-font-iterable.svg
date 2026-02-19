@@ -1,6 +1,6 @@
 <!--
 {
-  "height": 65,
+  "height": 64,
   "id": "mermaid-0",
   "width": 64
 }
@@ -12,7 +12,7 @@
   xmlns:xlink="http://www.w3.org/1999/xlink"
   class="flowchart"
   style="max-width: 64px"
-  viewBox="0 -0.5 64 65"
+  viewBox="0 0 64 64"
   role="graphics-document document"
   aria-roledescription="flowchart-v2"
 >
@@ -367,13 +367,16 @@
               fill="transparent"
             />
           </g>
-          <g transform="translate(-24,-24.5)" style="color: #9370db">
+          <g transform="translate(-24,-24)" style="color: #9370db">
             <g>
               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 80 80">
                 <g>
-                  <rect style="fill: #087ebf; stroke-width: 0" height="80" width="80" />
-                  <text style="fill: #fff; font-family: Irish Grover; font-size: 67.75px">
-                    <tspan y="65" x="15">C</tspan>
+                  <rect width="80" height="80" style="fill: #087ebf; stroke-width: 0px" />
+                  <text
+                    transform="translate(21.16 64.67)"
+                    style="fill: #fff; font-family: ArialMT, Arial; font-size: 67.75px"
+                  >
+                    <tspan x="0" y="0">?</tspan>
                   </text>
                 </g>
               </svg>
