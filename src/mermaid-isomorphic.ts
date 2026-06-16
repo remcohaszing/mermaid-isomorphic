@@ -17,6 +17,15 @@ export interface CreateMermaidRendererOptions {
    * The options used to launch the browser.
    */
   launchOptions?: LaunchOptions
+
+  /**
+    * Time without the renderer being used before closing all instances in the renderer
+    * - 0 to close browser immediately after it is idle
+    * - Infinity to keep it on forever
+    *
+    * @default 0
+    */
+  idleTimeout?: number
 }
 
 export interface RenderResult {
@@ -297,12 +306,19 @@ async function getBrowser(
  *   A function that renders Mermaid diagrams in the browser.
  */
 export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}): MermaidRenderer {
+  const idleTimeout = options.idleTimeout ?? 0 // default to close context immediately after count reaches 0
+
   const { browserType = chromium, launchOptions } = options
 
   let browserPromise: Promise<SimpleContext> | undefined
+  // value is the handle for the setTimeout task
+  // undefined means a page is currently opened
+  let browserCloseTask: ReturnType<typeof setTimeout> | undefined = undefined
   let count = 0
 
   return async (diagrams, renderOptions) => {
+    clearTimeout(browserCloseTask)
+    browserCloseTask = undefined
     count += 1
     browserPromise ||= getBrowser(browserType, launchOptions)
 
@@ -355,8 +371,15 @@ export function createMermaidRenderer(options: CreateMermaidRendererOptions = {}
       await page?.close()
       count -= 1
       if (!count) {
-        browserPromise = undefined
-        context.close()
+        if (idleTimeout <= 0) {
+          browserPromise = undefined
+          context.close()
+        } else if (isFinite(idleTimeout)) {
+          browserCloseTask = setTimeout(() => {
+            browserPromise = undefined
+            context.close()
+          }, idleTimeout)
+        } // skip infinite case
       }
     }
 
