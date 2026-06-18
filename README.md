@@ -128,7 +128,9 @@ the browser will be closed.
 #### Options
 
 - `browserType` (`BrowserType`): The Playwright browser to use. (default: chromium)
-- `launchOptions`: (`LaunchOptions`): The options used to launch the browser.
+- `launchOptions` (`LaunchOptions`): The options used to launch the browser.
+- `idleTimeout` (`number`): Time without the render being used before stopping the browser instance.
+  (default: 0)
 
 #### Returns
 
