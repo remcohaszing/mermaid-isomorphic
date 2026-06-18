@@ -19,7 +19,7 @@ export interface CreateMermaidRendererOptions {
   launchOptions?: LaunchOptions
 
   /**
-    * Time without the renderer being used before closing all instances in the renderer
+    * Time without the renderer being used before stopping the browser instance
     * - 0 to close browser immediately after it is idle
     * - Infinity to keep it on forever
     *

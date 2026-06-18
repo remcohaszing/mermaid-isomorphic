@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-import { createMermaidRenderer } from 'mermaid-isomorphic'
+import { createMermaidRenderer } from '@siriusmart/mermaid-isomorphic'
 import { chromium, firefox, webkit } from 'playwright'
 
 test('chromium', async () => {
